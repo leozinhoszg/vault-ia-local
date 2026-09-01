@@ -23,7 +23,7 @@ New-Item -ItemType Directory -Force docs | Out-Null
 .\.venv\Scripts\python.exe RAG-local-executavel.py --docs docs --query "Qual é a política de backup?" --model qwen3.6:27b
 ```
 
-O Ollama deve estar instalado e acessível em `http://127.0.0.1:11434`. Antes do teste, execute `ollama pull qwen3.6:27b` ou substitua por uma tag existente. O script ingere TXT, Markdown e PDF, preserva fonte e chunk, cria embeddings locais com Sentence Transformers, armazena Chroma e chama uma API local do Ollama.
+O Ollama deve estar instalado e acessível em `http://127.0.0.1:11434`. Antes do teste, execute `ollama pull` da tag escolhida: `qwen3.6:27b` exige mais de 16 GB de VRAM em Q4; em GPUs de 8 GB use `qwen3.5:4b` (padrão do script, testado) e ajuste `--model`. O script ingere TXT, Markdown e PDF, preserva fonte e chunk, cria embeddings locais com Sentence Transformers, armazena Chroma e chama uma API local do Ollama.
 
 ## Selftest do pipeline (sem Ollama e sem download de modelo)
 
@@ -35,7 +35,7 @@ O selftest cria dois documentos temporários, indexa no Chroma com um embedding 
 
 ## Smoke test funcional
 
-Evidência da última reprodução em ambiente limpo (lockfile, selftest e recuperação com embedding real; sem Ollama): [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]].
+Evidência da reprodução ponta a ponta em ambiente limpo (lockfile, selftest, embedding real e geração com Ollama `qwen3.5:4b`, 3/3 respostas com `[Fonte N]`): [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]]. O script desliga o modo *thinking* e pede `num_ctx` 8192 por padrão; com thinking ligado e o contexto padrão do servidor (4096), o Qwen3.5 pode esgotar o orçamento antes de responder. Use `--think` só com `--num-ctx` maior.
 
 Coloque um arquivo `docs/teste.md` contendo uma afirmação conhecida. Execute o comando de consulta e aceite somente uma resposta que contenha `[Fonte N]`, não apresente traceback e recupere o arquivo de teste. Registre SO, Python, versões, modelo, hash, latência e resultado em [[99-Templates/Registro-de-benchmark]]. O validador confirma sintaxe Python, mas não substitui esse teste funcional.
 

@@ -2,7 +2,8 @@
 """RAG local mínimo: ingestão de TXT/MD/PDF, Chroma, embeddings e citações.
 
 Modos:
-  padrão      ingere --docs, recupera top-k e gera resposta via Ollama.
+  padrão      ingere --docs, recupera top-k e gera resposta via Ollama
+              (thinking desligado e num_ctx=8192 por padrão; ver --think/--num-ctx).
   --retrieve-only  ingere e imprime somente as evidências (sem Ollama).
   --selftest  smoke test do pipeline (chunking, Chroma, recuperação e citação)
               com embedding determinístico local, sem baixar modelo nem chamar
@@ -94,6 +95,8 @@ def main():
     ap.add_argument('--model',default='qwen3.5:4b')
     ap.add_argument('--ollama',default='http://127.0.0.1:11434')
     ap.add_argument('--db',default='rag_db')
+    ap.add_argument('--num-ctx',type=int,default=8192,help='janela de contexto pedida ao Ollama (padrão 8192; o padrão do servidor, 4096, pode truncar a resposta)')
+    ap.add_argument('--think',action='store_true',help='habilita o modo thinking em modelos que o suportam (lento; pode consumir o contexto antes da resposta)')
     ap.add_argument('--retrieve-only',action='store_true')
     ap.add_argument('--selftest',action='store_true')
     args=ap.parse_args()
@@ -106,9 +109,18 @@ def main():
     if args.retrieve_only:
         print(evidence); return
     import requests
-    r=requests.post(f'{args.ollama}/api/generate',json={'model':args.model,'prompt':build_prompt(evidence,args.query),'stream':False},timeout=600)
-    r.raise_for_status()
-    print(r.json()['response'])
+    body={'model':args.model,'prompt':build_prompt(evidence,args.query),'stream':False,
+          'think':args.think,'options':{'num_ctx':args.num_ctx}}
+    r=requests.post(f'{args.ollama}/api/generate',json=body,timeout=600)
+    r.raise_for_status(); data=r.json()
+    resp=(data.get('response') or '').strip()
+    if not resp:
+        print(f"[sem resposta do modelo: done_reason={data.get('done_reason')}, eval_count={data.get('eval_count')}; "
+              "verifique --num-ctx e se o modo thinking consumiu o contexto]", file=sys.stderr)
+        return 3
+    print(resp)
+    print(f"[modelo={args.model} done_reason={data.get('done_reason')} prompt_tokens={data.get('prompt_eval_count')} "
+          f"tokens_resposta={data.get('eval_count')} duracao_total={(data.get('total_duration') or 0)/1e9:.1f}s]", file=sys.stderr)
 
 if __name__=='__main__':
     sys.exit(main())

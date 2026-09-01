@@ -7,7 +7,7 @@
 | Item | Verificação | Resultado |
 |---|---|---|
 | Rastros de prompt | Varredura textual e revisão dos finais das três notas indicadas. | Corrigido; blocos após referências removidos. O validador não encontrou trace ou segredo nesta execução. |
-| RAG executável | Venv novo + `pip install --require-hashes` do lockfile (exit 0) + `--selftest` + `--retrieve-only` com `all-MiniLM-L6-v2`, Windows 11, Python 3.11.9. | Reproduzido: selftest OK (5,0 s); recuperação com embedding real acertou a fonte em 2/2 consultas (26 s / 23 s, torch CPU); versões efetivas iguais ao lockfile (numpy 2.3.2 — divergência anterior eliminada). **Geração via Ollama não executada** (não instalado). Evidência: [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]]. |
+| RAG executável | Venv novo + `pip install --require-hashes` do lockfile (exit 0) + `--selftest` + `--retrieve-only` + pipeline completo com Ollama 0.33.2 / `qwen3.5:4b` (Q4_K_M, digest `2a654d98e6fb`) em RTX 4060 Laptop, Windows 11, Python 3.11.9. | **Reproduzido ponta a ponta**: selftest OK; recuperação correta 2/2; geração com `[Fonte N]` correta 3/3, incluindo "não foi encontrado" sem evidência; versões efetivas iguais ao lockfile. Defeito encontrado e corrigido: resposta vazia por *thinking* + `num_ctx` 4096 (script agora usa `think=false` e `--num-ctx 8192`). Evidência: [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]]. |
 | GB/GiB | Fórmula revisada para `/1e9` em GB decimal e `/2^30` em GiB binário. | Corrigido; exemplos recalculados, incluindo 27B Q4. |
 | TCO API | Texto e planilha usam 100M input, 20M cached e 25M output, câmbio R$5,50. | Reconciliado: Sol R$4.994, Terra R$2.772, Luna R$277,20. |
 | TCO local | Componentes separados entre CAPEX, energia, refrigeração, manutenção e operação. | Reconciliado em R$1.768,50/mês para as premissas atuais. |
@@ -27,7 +27,7 @@ As fórmulas foram lidas com `openpyxl`, todas as referências de célula foram 
 
 ## Pendências abertas
 
-- Geração via Ollama com resposta `[Fonte N]` em corpus real: exige instalar Ollama e baixar um modelo nesta máquina ou em outra; não executada.
+- RAG: avaliação quantitativa (recall@k, groundedness) em corpus real e maior ainda não medida; o teste ponta a ponta usou 2 documentos e 3 perguntas.
 - Bloco de vida útil da `Sensibilidade` usa amortização linear mesmo com `Método de CAPEX = 1`; o fator Batch é aplicado a 100% do custo.
 - Preços da API são premissas datadas e devem ser reconsultados na data da decisão.
 - O job de release só roda em tags `v*`; nenhuma release foi publicada ainda.

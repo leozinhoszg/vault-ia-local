@@ -27,6 +27,8 @@ O guia também afirma que modelos de 200B–300B ou mais podem ter qualidade sup
 | Laguna S 2.1 | — | 59,4% | 70,2% com thinking |
 | Modelos open-weight grandes citados | ~80% | — | — |
 
+Os números acima são transcritos do guia; a Atomic não informa harness nem número de tentativas, e escreve apenas "Terminal-Bench" onde o model card da Laguna S 2.1 registra Terminal-Bench **2.1**. A versão normalizada, com variante, harness, tentativas e data de captura a partir dos model cards, está em [[02-Modelos/Tabela-normalizada-de-benchmarks]]. A Laguna XS 2.1 (33B/3B, GGUF Q4_K_M de 20,3 GB), lançada depois do teste da Atomic, é hoje o candidato mais compacto da mesma família: [[02-Modelos/Fichas/Laguna-XS-2.1]].
+
 Benchmarks de coding medem dimensões diferentes. SWE-bench verifica correções em issues reais; LiveCodeBench reduz o risco de contaminação usando problemas posteriores ao cutoff; Terminal-Bench mede tarefas agentic de linha de comando. Nenhum benchmark substitui uma suíte com os repositórios, linguagens, ferramentas e padrões de erro da sua equipe.
 
 ## Tradução para decisões de hardware

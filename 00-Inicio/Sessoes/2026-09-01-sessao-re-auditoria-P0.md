@@ -30,7 +30,7 @@
 
 ## Decisões em aberto (do dono editorial)
 
-1. Instalar Ollama e baixar um modelo para executar a geração com `[Fonte N]` — única etapa do item "RAG em ambiente limpo" não coberta.
+1. ~~Instalar Ollama e executar a geração com `[Fonte N]`~~ — **feito** na mesma sessão após autorização: Ollama 0.33.2 via winget, `qwen3.5:4b`, 3/3 respostas corretas com citação; evidência em [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]].
 2. Criar a tag `v1.0.0` para a primeira release versionada com checksum.
 3. Itens que exigem hardware/ambiente real (benchmarks multi-stack, fichas medidas, BOM com cotações, aceitação empresarial) permanecem não iniciados; ver [[00-Inicio/Auditoria-P0]].
 
@@ -38,4 +38,5 @@
 
 - `pip-compile --generate-hashes` travou por 20 min nesta árvore; `uv pip compile` resolveu em 2,5 s com pins idênticos.
 - Arquivos `.xlsx` salvos por `openpyxl` perdem valores em cache; `check_tco.py` retorna 2 nesse estado e o recálculo via Excel COM restaura.
+- Modelos com *thinking* (Qwen3.5) podem consumir todo o `num_ctx` padrão do Ollama (4096) antes de responder; o script passou a desligar thinking e pedir 8192 explicitamente.
 - Selftests com stub determinístico encontram bugs de encanamento (pontuação, locks de arquivo no Windows) que a análise estática não vê.

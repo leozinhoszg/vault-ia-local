@@ -4,6 +4,8 @@ Esta nota amplia as fichas individuais e impede que uma recomendação seja trat
 
 | Modelo/família | Parâmetros | Contexto | Licença | Uso local | Estado |
 |---|---:|---:|---|---|---|
+| Laguna XS 2.1 | 33B total / 3B ativos | 262.144 | OpenMDW-1.1 | Coding agentic local real; GGUF Q4_K_M de 20,3 GB | Ficha criada em [[02-Modelos/Fichas/Laguna-XS-2.1]]; benchmark próprio pendente |
+| Kimi K2.7 Code | 1T total / 32B ativos | 256K | Modified MIT | Infraestrutura de alta memória ou remoto; Ollama só `:cloud` | Ficha criada em [[02-Modelos/Fichas/Kimi-K2.7-Code]]; não candidato doméstico |
 | Qwen3 8B | 8B | Confirmar na versão | Confirmar no card | Edge, coding leve, RAG | Ficha pendente |
 | Qwen3-Coder-Next | 80B total / ~3B ativos | 256K | Confirmar no card exato | Coding agentic com muita memória | Ficha pendente |
 | Gemma 4 26B A4B | 26B total / ~4B ativos | 256K | Confirmar termos da versão | Coding e RAG compacto | Ficha pendente |
