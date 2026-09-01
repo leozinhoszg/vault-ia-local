@@ -30,7 +30,7 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://docs.sglang.ai/ | 05-Memoria-e-Performance/Inferencia-livro.md |
 | https://docs.vllm.ai/ | 00-Inicio/Livro-IA-Local.md, 02-Modelos/LLMs-locais-para-coding-Atomic.md, 03-Hardware/Calculadora-de-memoria.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md, 03-Hardware/Referencias-de-desempenho-GPU.md, 03-Hardware/Sizing-9B-14B-27B-70B.md, 04-Software/Runtimes.md, 05-Memoria-e-Performance/Evaliacao-e-regressao-de-modelos.md, 05-Memoria-e-Performance/Inferencia-livro.md, 05-Memoria-e-Performance/KV-cache-formula-e-exemplos.md, 08-Implementacao-Empresa/02-Deploy-com-vLLM.md, 11-Referencias/Fontes-principais.md |
 | https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html | 08-Implementacao-Empresa/03-Paralelismo-e-multi-GPU.md |
-| https://github.com/Noobru/vault-ia-local/commit/c4ecf977a3ce8bbf53a23ca9ab0483fb761a3ce4 | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
+| https://github.com/Noobru/vault-ia-local/commit/ffec088e2c2af03ff85d318673b6bcc7ab555539 | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
 | https://github.com/advisories/GHSA-36p7-vc44-83pf | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/RAG-livro.md |
 | https://github.com/advisories/GHSA-5xf7-4p34-54qr | 07-Implementacao-Casa/03-RAG-deploy.md |
 | https://github.com/advisories/GHSA-f4j7-r4q5-qw2c | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/RAG-livro.md |

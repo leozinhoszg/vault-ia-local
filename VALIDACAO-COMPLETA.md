@@ -2,17 +2,17 @@
 
 - Markdown no pacote: 81
 - Markdown analisados: 79 (excluídos os relatórios VALIDACAO-COMPLETA.md, VALIDACAO.md)
-- Arquivos na triagem textual heurística: 90 (.cfg, .ini, .json, .md, .ps1, .py, .sh, .toml, .txt, .yaml, .yml)
+- Arquivos na triagem textual heurística: 90 (.cfg, .ini, .json, .key, .md, .pem, .properties, .ps1, .py, .sh, .toml, .txt, .yaml, .yml; nomes especiais: .env*)
 - Limite da triagem: regexes indicam padrões suspeitos; não substituem secret scanning dedicado, histórico Git ou revisão humana.
 - Erros: 0
-- Avisos: 1
-- Avisos justificados: 7
+- Avisos: 0
+- Avisos justificados: 8
 
 ## Erros
 - Nenhum erro.
 
 ## Avisos
-- NO_FORMULAS 03-Hardware/Catalogo-NVIDIA-IA-local.xlsx
+- Nenhum aviso.
 
 ## Avisos justificados
 - NO_REFERENCES_SECTION README.md — nota de apresentação e navegação; fontes ficam nas notas e em 11-Referencias
@@ -22,3 +22,4 @@
 - NO_REFERENCES_SECTION 11-Referencias/Fontes-principais.md — lista de fontes primárias; as URLs são o próprio conteúdo
 - NO_REFERENCES_SECTION 11-Referencias/Indice-de-fontes-urls.md — nota gerada automaticamente por 99-Templates/gerar_indice_urls.py; as fontes são o próprio conteúdo
 - NO_REFERENCES_SECTION 07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01.md — nota de evidência; as fontes são o log e os artefatos abaixo
+- NO_FORMULAS 03-Hardware/Catalogo-NVIDIA-IA-local.xlsx — a planilha homônima é um snapshot tabular estático do catálogo; não contém modelo de cálculo

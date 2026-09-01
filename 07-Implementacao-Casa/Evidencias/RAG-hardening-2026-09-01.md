@@ -1,6 +1,6 @@
 # Evidência — hardening do RAG local (2026-09-01)
 
-> **TL;DR:** o patch `c4ecf977a3ce8bbf53a23ca9ab0483fb761a3ce4`
+> **TL;DR:** o patch `ffec088e2c2af03ff85d318673b6bcc7ab555539`
 > passou nos gates estático, editorial, de lock/SCA, selftest, embedding real e
 > PDF opt-in descritos abaixo. A geração com Ollama e a instalação do lock em
 > Windows limpo permanecem pendentes e não são implicitamente aprovadas.
@@ -10,8 +10,8 @@
 | Campo | Valor |
 |---|---|
 | Data | 2026-09-01 |
-| Commit de código | `c4ecf977a3ce8bbf53a23ca9ab0483fb761a3ce4` |
-| Base upstream | `6cc5209d607e09c8d63de2f44bac105f3d1abd32` |
+| Commit de código | `ffec088e2c2af03ff85d318673b6bcc7ab555539` |
+| Base upstream | `f316e2dbd5b908c9dc8ad1265542111fe27c438f` |
 | Ambiente | Container `python:3.11-slim-bookworm`, digest `sha256:528257d48c1da0dcecc2e725d1ae34498d60c965f1241e39cd6a85a8859bdf84`, sem bind mount do host |
 | Python | 3.11.16 |
 | Pins efetivos do smoke Linux | numpy 2.4.6; pypdf 6.16.2; sentence-transformers 6.0.1; huggingface-hub 1.29.0; torch 2.13.0+cu130; transformers 5.16.1 |
@@ -60,7 +60,7 @@ reprodução histórica do pipeline Chroma como prova do patch atual.
 
 ## Referências
 
-[1]: https://github.com/Noobru/vault-ia-local/commit/c4ecf977a3ce8bbf53a23ca9ab0483fb761a3ce4 "Commit do hardening validado"
+[1]: https://github.com/Noobru/vault-ia-local/commit/ffec088e2c2af03ff85d318673b6bcc7ab555539 "Commit do hardening validado"
 [2]: https://hub.docker.com/_/python "Imagem oficial Python"
 [3]: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/1110a243fdf4706b3f48f1d95db1a4f5529b4d41 "Snapshot fixado do embedding"
 [4]: https://github.com/huggingface/sentence-transformers/blob/main/SECURITY.md "Sentence Transformers — segurança no carregamento de modelos"

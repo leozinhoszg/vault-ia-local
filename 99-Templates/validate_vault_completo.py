@@ -11,15 +11,18 @@ errors=[]; warnings=[]; justified=[]
 def rel(p): return p.relative_to(ROOT).as_posix()
 EXCLUDED_REPORTS={'VALIDACAO.md','VALIDACAO-COMPLETA.md'}
 IGNORED_DIRS={'.git','.obsidian','.venv','venv','__pycache__'}
-TEXT_EXTENSIONS={'.md','.py','.json','.txt','.yml','.yaml','.ps1','.toml','.ini','.cfg','.sh'}
+TEXT_EXTENSIONS={'.md','.py','.json','.txt','.yml','.yaml','.ps1','.toml','.ini','.cfg','.sh','.pem','.key','.properties'}
+SPECIAL_TEXT_PREFIXES=('.env',)
 
 def ignored(p):
     return any(part in IGNORED_DIRS for part in p.relative_to(ROOT).parts)
 
 all_md=[p for p in ROOT.rglob('*.md') if not ignored(p)]
 md=[p for p in all_md if p.name not in EXCLUDED_REPORTS]
-text_files=[p for p in ROOT.rglob('*') if p.is_file() and not ignored(p) and p.suffix.lower() in TEXT_EXTENSIONS]
+text_files=[p for p in ROOT.rglob('*') if p.is_file() and not ignored(p)
+            and (p.suffix.lower() in TEXT_EXTENSIONS or p.name.lower().startswith(SPECIAL_TEXT_PREFIXES))]
 JUST=re.compile(r'<!--\s*validador:\s*(sem-referencias|sem-data)\s*:\s*(.+?)\s*-->')
+NO_FORMULAS_JUST=re.compile(r'<!--\s*validador:\s*sem-formulas\s*:\s*(.+?)\s*-->')
 
 for p in md:
     text=p.read_text(encoding='utf-8', errors='replace')
@@ -167,7 +170,14 @@ for p in ROOT.rglob('*.xlsx'):
                         formulas.append((ws.title,c.coordinate,c.value))
                         if '#REF!' in c.value or '#DIV/0!' in c.value:
                             errors.append(f'FORMULA {p.name}!{ws.title}!{c.coordinate} {c.value}')
-        if not formulas: warnings.append(f'NO_FORMULAS {rel(p)}')
+        if not formulas:
+            sidecar=p.with_suffix('.md')
+            match=(NO_FORMULAS_JUST.search(sidecar.read_text(encoding='utf-8',errors='replace'))
+                   if sidecar.exists() else None)
+            if match:
+                justified.append(f'NO_FORMULAS {rel(p)} — {match.group(1)}')
+            else:
+                warnings.append(f'NO_FORMULAS {rel(p)}')
     except Exception as e: errors.append(f'XLSX {rel(p)} {e}')
 
 # 6) Heuristic secret indicators across relevant text/config/script formats.
@@ -202,7 +212,7 @@ report=ROOT/'VALIDACAO-COMPLETA.md'
 lines=['# Validação automatizada do vault','',
        f'- Markdown no pacote: {len(all_md)}',
        f'- Markdown analisados: {len(md)} (excluídos os relatórios {", ".join(sorted(EXCLUDED_REPORTS))})',
-       f'- Arquivos na triagem textual heurística: {len(text_files)} ({", ".join(sorted(TEXT_EXTENSIONS))})',
+       f'- Arquivos na triagem textual heurística: {len(text_files)} ({", ".join(sorted(TEXT_EXTENSIONS))}; nomes especiais: .env*)',
        '- Limite da triagem: regexes indicam padrões suspeitos; não substituem secret scanning dedicado, histórico Git ou revisão humana.',
        f'- Erros: {len(errors)}',f'- Avisos: {len(warnings)}',f'- Avisos justificados: {len(justified)}','', '## Erros']
 lines += [f'- {x}' for x in errors] or ['- Nenhum erro.']
