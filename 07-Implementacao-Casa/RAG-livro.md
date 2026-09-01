@@ -24,7 +24,7 @@ flowchart LR
 
 ## 3. Ingestão
 
-Ingestão deve ser idempotente: use hash do documento, versão, origem, ACL e timestamp. Extraia PDF, HTML, Office, Markdown e código com parsers adequados. Preserve página, seção, linha e URL para a citação. Detecte OCR necessário e registre confiança.
+Ingestão deve ser idempotente: use hash do documento, versão, origem, ACL e timestamp. Extraia PDF, HTML, Office, Markdown e código com parsers adequados. Preserve página, seção, linha e URL para a citação. Detecte OCR necessário e registre confiança. Parser de arquivo é uma fronteira de segurança: limite tamanho, páginas, tempo, CPU e memória; processe formato complexo não confiável em container/VM sem secrets e sem rede.
 
 ## 4. Recuperação
 
@@ -46,7 +46,7 @@ Uma citação é correta quando aponta para um trecho que realmente suporta a af
 
 ## 7. Segurança
 
-Defenda-se contra prompt injection em documentos, exfiltração entre tenants, documentos maliciosos, poisoning do índice e vazamento por logs. Faça ACL no retriever, redaction, allowlist de fontes, versionamento e auditoria. Nunca trate texto recuperado como instrução de sistema.
+Defenda-se contra prompt injection em documentos, exfiltração entre tenants, documentos maliciosos, poisoning do índice, SSRF no endpoint do modelo e vazamento por logs. Faça ACL antes do retrieval, redaction, allowlist de fontes, versionamento e auditoria. Separe conteúdo recuperado com delimitadores inequívocos, mas trate essa instrução como mitigação — não como garantia. Nunca dê tools, credenciais ou autoridade ao texto recuperado; ações precisam de policy enforcement fora do modelo e aprovação proporcional ao impacto.
 
 ## 8. Operação
 
@@ -54,11 +54,17 @@ Atualize documentos por evento ou lote, remova versões antigas conforme políti
 
 ## 9. Implementação
 
-Use o script [[07-Implementacao-Casa/RAG-local-executavel.py]] como protótipo. Em empresa, acrescente autenticação, fila de ingestão, storage de objetos, banco vetorial com filtros, observabilidade, quotas e serviço de avaliação.
+Use o script [[07-Implementacao-Casa/RAG-local-executavel.py]] como protótipo de laboratório. Ele reconstrói um índice cosine exato em memória a cada execução, limita corpus/chunks/texto, recusa PDF por padrão, fixa a revisão do embedding default e restringe Ollama a loopback sem proxy ou redirect. Essa escolha remove estado stale e simplifica o threat model, mas não escala como serviço persistente. Os defaults, riscos residuais e gates estão em [[07-Implementacao-Casa/03-RAG-deploy]].
+
+Em empresa, acrescente autenticação, ACL por tenant, fila de ingestão, object storage, versionamento/tombstone, banco vetorial com filtros, observabilidade, quotas, backup/restore e serviço de avaliação. A seleção de um índice persistente é uma decisão arquitetural própria; não reutilize automaticamente uma dependência do protótipo.
+
+*Última atualização: 2026-09-01. Próxima revisão: 2026-10-01.*
 
 ## Referências
 
 [1]: https://arxiv.org/abs/2005.11401 "Retrieval-Augmented Generation"
-[2]: https://sbert.net/ "Sentence Transformers"
+[2]: https://sbert.net/docs/package_reference/sentence_transformer/model.html "Sentence Transformers — carregamento, revision e segurança"
 [3]: https://qdrant.tech/documentation/ "Qdrant"
-[4]: https://docs.langchain.com/ "LangChain documentation"
+[4]: https://docs.ollama.com/api/generate "Ollama — Generate API"
+[5]: https://github.com/advisories/GHSA-f4j7-r4q5-qw2c "GitHub Advisory — ChromaDB pre-auth code injection"
+[6]: https://github.com/advisories/GHSA-36p7-vc44-83pf "GitHub Advisory — ChromaDB code injection"

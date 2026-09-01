@@ -2,12 +2,12 @@
 
 <!-- validador: sem-referencias: relatório interno; as evidências (células, comandos, versões) estão citadas inline e as fontes externas ficam nas notas auditadas -->
 
-**Data da auditoria:** 1º de setembro de 2026. **Revisão:** 3 (a revisão 1 declarou o break-even reconciliado; a revisão 2 corrigiu o erro de câmbio na planilha; a revisão 3 fechou o gate com lockfile, reprodução do RAG em ambiente limpo, aba `Checks` e CI). **Resultado:** aprovado com ressalvas não bloqueantes, listadas em "Pendências abertas".
+**Data da auditoria:** 1º de setembro de 2026. **Revisão:** 4 (as revisões 1–3 cobrem a reconciliação da planilha e o pipeline RAG anterior; a revisão 4 substitui o exemplo Chroma vulnerável por retrieval efêmero e reabre explicitamente os gates Windows/Ollama). **Resultado:** aprovado no escopo estático, editorial e dos smokes isolados descritos abaixo; validação ponta a ponta da implementação atual permanece aberta.
 
 | Item | Verificação | Resultado |
 |---|---|---|
 | Rastros de prompt | Varredura textual e revisão dos finais das três notas indicadas. | Corrigido; blocos após referências removidos. O validador não encontrou trace ou segredo nesta execução. |
-| RAG executável | Venv novo + `pip install --require-hashes` do lockfile (exit 0) + `--selftest` + `--retrieve-only` + pipeline completo com Ollama 0.33.2 / `qwen3.5:4b` (Q4_K_M, digest `2a654d98e6fb`) em RTX 4060 Laptop, Windows 11, Python 3.11.9. | **Reproduzido ponta a ponta**: selftest OK; recuperação correta 2/2; geração com `[Fonte N]` correta 3/3, incluindo "não foi encontrado" sem evidência; versões efetivas iguais ao lockfile. Defeito encontrado e corrigido: resposta vazia por *thinking* + `num_ctx` 4096 (script agora usa `think=false` e `--num-ctx 8192`). Evidência: [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]]. |
+| RAG executável | Commit `ffec088e2c2af03ff85d318673b6bcc7ab555539`: Chroma/requests removidos; retrieval cosine exato em memória; enumeração, bytes, texto, chunks, PDF e HTTP limitados; fontes relativas; embedding default fixado por SHA; PDF default-deny; Ollama loopback sem proxy/redirect. Smokes em container Linux/Python 3.11 sem bind mount do host. | **Parcialmente validado na implementação atual**: selftest exit 0; embedding real recuperou a fonte correta; PDF opt-in funcionou e limite de páginas falhou fechado; gate negativo requirements↔lock funcionou. Evidência: [[07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01]]. O teste Windows/Ollama anterior está preservado em [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]], mas é histórico e não valida este patch. |
 | GB/GiB | Fórmula revisada para `/1e9` em GB decimal e `/2^30` em GiB binário. | Corrigido; exemplos recalculados, incluindo 27B Q4. |
 | TCO API | Texto e planilha usam 100M input, 20M cached e 25M output, câmbio R$5,50. | Reconciliado: Sol R$4.994, Terra R$2.772, Luna R$277,20. |
 | TCO local | Componentes separados entre CAPEX, energia, refrigeração, manutenção e operação. | Reconciliado em R$1.768,50/mês para as premissas atuais. |
@@ -19,7 +19,7 @@
 | Preços | Data de consulta, Batch, contexto longo e cache writes são premissas editáveis. | Mantido com ressalva: revalidar preços e contrato antes de uso. |
 | Estrutura da planilha | Verificado com `openpyxl`: na revisão 2 não havia tabelas estruturadas (a alegação de tabelas em `A1:H1`/`A1:H19` não procedia), apenas autofiltros herdados curtos. | Revisão 3: `99-Templates/recalcular_tco.ps1` cria tabelas estruturadas reais (`tBreakEven` A1:H4, quatro tabelas em `Sensibilidade` até A19:F24, `tPremissas`, `tAPI`, `tLocal`, `tChecks`), recalcula no Excel e salva com valores em cache. |
 | Aba `Checks` e conferência | `Checks` reconcilia TCO, três break-evens, custo API, mix e premissas por fórmulas independentes; `99-Templates/check_tco.py` recalcula tudo em Python e compara com os valores em cache. | `STATUS GERAL = PASS`; `check_tco.py` exit 0 (TCO 1.768,50; 51,35 / 92,51 / 925,08). Anuidade com taxa de desconto implementada como opção (`Método de CAPEX = 1`). |
-| Lockfile e gate | `requirements-rag.lock.txt` (uv, hashes, Windows/Py3.11) + `requirements-rag.lock.sha256`; validador `--strict`; `gerar_indice_urls.py --check`; workflow `.github/workflows/validate.yml`. | Gate local: validador exit 0, 0 erros, 0 avisos não justificados. CI observado: execução `33524666554` em `main` (commit `2cf7e2a`), job "Gate editorial e técnico" = success em ubuntu-latest (validador `--strict`, índice, sha256, `check_tco.py` com valores em cache, selftest do RAG); job de release ignorado por não haver tag. |
+| Lockfile e gate | Lock Windows/Python 3.11 regenerado com uv 0.12.8 e hashes: 43 pins, sha256 `f5256db8…`; requirements diretos reconciliados contra o lock; pypdf mínimo 6.15.0; SCA fail-closed; Actions por SHA; Dependabot semanal. | Gate local do commit `ffec088`: validador `--strict` exit 0 (0 erros/avisos), índice `--check` exit 0, `check_tco.py` PASS, checksum OK, selftest OK e pip-audit 2.10.1 sem vulnerabilidades conhecidas. A execução `33524666554` continua evidência histórica do pipeline anterior; o CI remoto no SHA atual ainda precisa ser observado no PR. |
 
 ## Método de verificação do break-even
 
@@ -27,7 +27,8 @@ As fórmulas foram lidas com `openpyxl`, todas as referências de célula foram 
 
 ## Pendências abertas
 
-- RAG: avaliação quantitativa (recall@k, groundedness) em corpus real e maior ainda não medida; o teste ponta a ponta usou 2 documentos e 3 perguntas.
+- RAG atual: instalar o lock novo em Windows limpo e repetir retrieval/geração com Ollama, inclusive ausência de evidência, timeout e limite de resposta.
+- RAG: avaliação quantitativa (recall@k, groundedness) em corpus real e maior ainda não medida; o smoke atual usou 2 documentos pequenos.
 - Bloco de vida útil da `Sensibilidade` usa amortização linear mesmo com `Método de CAPEX = 1`; o fator Batch é aplicado a 100% do custo.
 - Preços da API são premissas datadas e devem ser reconsultados na data da decisão.
 - O job de release só roda em tags `v*`; nenhuma release foi publicada ainda.
@@ -39,3 +40,5 @@ Os itens abaixo, pedidos na revisão externa, não podem ser fechados por ediç�
 ## Limites da aprovação
 
 A aprovação significa que a consistência editorial, matemática e estrutural foi corrigida e verificada pelos métodos acima. Não significa que a API foi faturada em produção, que os preços permanecerão vigentes ou que o modelo local entrega a mesma qualidade. O próximo teste de aceitação deve executar o cookbook em cada plataforma-alvo e comparar a fatura real com a planilha.
+
+Para o RAG da revisão 4, aprovação também não significa sandbox de PDF, eliminação atômica de toda janela TOCTOU, instalação do lock Windows nem geração Ollama atual. Esses gates só fecham com as evidências pendentes listadas acima.

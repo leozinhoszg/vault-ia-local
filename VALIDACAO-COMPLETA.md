@@ -1,10 +1,12 @@
-# Validação completa do vault
+# Validação automatizada do vault
 
-- Markdown no pacote: 97
-- Markdown analisados: 95 (excluídos os relatórios VALIDACAO-COMPLETA.md, VALIDACAO.md)
+- Markdown no pacote: 98
+- Markdown analisados: 96 (excluídos os relatórios VALIDACAO-COMPLETA.md, VALIDACAO.md)
+- Arquivos na triagem textual heurística: 109 (.cfg, .ini, .json, .key, .md, .pem, .properties, .ps1, .py, .sh, .toml, .txt, .yaml, .yml; nomes especiais: .env*)
+- Limite da triagem: regexes indicam padrões suspeitos; não substituem secret scanning dedicado, histórico Git ou revisão humana.
 - Erros: 0
 - Avisos: 0
-- Avisos justificados: 8
+- Avisos justificados: 9
 
 ## Erros
 - Nenhum erro.
@@ -21,3 +23,4 @@
 - NO_REFERENCES_SECTION 99-Templates/Modelo-de-ficha-de-workstation.md — template vazio; cada ficha preenchida carrega as próprias fontes
 - NO_REFERENCES_SECTION 00-Inicio/Sessoes/2026-09-01-sessao-re-auditoria-P0.md — ata de sessão; as evidências estão nas notas e commits citados
 - NO_REFERENCES_SECTION 07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01.md — nota de evidência; as fontes são o log e os artefatos abaixo
+- NO_FORMULAS 03-Hardware/Catalogo-NVIDIA-IA-local.xlsx — a planilha homônima é um snapshot tabular estático do catálogo; não contém modelo de cálculo

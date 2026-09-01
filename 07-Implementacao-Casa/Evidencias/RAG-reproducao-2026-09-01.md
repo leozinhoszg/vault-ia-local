@@ -2,8 +2,17 @@
 
 <!-- validador: sem-referencias: nota de evidência; as fontes são o log e os artefatos abaixo -->
 
+> [!warning] Evidência histórica do pipeline anterior
+> Esta reprodução valida somente a versão que usava ChromaDB 1.0.20,
+> pypdf 6.0.0 e caminhos absolutos nas citações. Esses pins foram substituídos
+> após a identificação de advisories e de lacunas de contenção. O log abaixo é
+> preservado como registro append-only e **não valida** o RAG endurecido atual.
+> Para o gate vigente, use [[07-Implementacao-Casa/03-RAG-deploy]] e a revisão
+> corrente de [[00-Inicio/Auditoria-P0]].
+
 | Campo | Valor |
 |---|---|
+| Status | **Histórico/superado** — não usar como aceite da implementação atual |
 | Data | 2026-09-01 |
 | Máquina | Windows 11 Pro (build 10.0.26200), x86_64; GPU NVIDIA GeForce RTX 4060 Laptop 8 GB, driver 566.24 (usada só pelo Ollama; embeddings em torch CPU) |
 | Python | 3.11.9 |
@@ -31,9 +40,16 @@ A latência ponta a ponta é dominada pelo import do torch CPU e pela carga do m
 
 Na primeira execução completa, a pergunta 3 devolveu `response` vazia com exit 0. Diagnóstico por chamada direta à API: `qwen3.5:4b` é um modelo com *thinking*; com o modo ligado (padrão) ele gastou 3.138 tokens de raciocínio (47 s) e, como o servidor usava o `num_ctx` padrão de 4096, o orçamento acabou antes da resposta. Com `think=false` a mesma pergunta foi respondida corretamente em 0,9 s. Correção no script: `think` desligado por padrão (`--think` para habilitar), `--num-ctx` explícito (padrão 8192), resposta vazia vira exit 3 com `done_reason` no stderr, e o rodapé imprime tokens e duração reportados pelo Ollama.
 
-## O que este teste prova e o que não prova
+## O que este teste provou para a versão histórica
 
-Prova: o lockfile instala em ambiente limpo com verificação de hashes; ingestão, embedding real, índice Chroma, recuperação e geração com citação `[Fonte N]` funcionam no stack documentado; o modelo recusou responder sem evidência. Não prova: qualidade em corpus real e maior, PDFs escaneados, recall@k/groundedness medidos, concorrência, nem desempenho de embeddings em GPU. Esses itens seguem o roteiro de [[07-Implementacao-Casa/03-RAG-deploy]] (seção "Produção") e devem ser registrados em [[99-Templates/Registro-de-benchmark]].
+Na revisão então testada, o lockfile instalou em ambiente limpo com verificação
+de hashes; ingestão, embedding real, índice Chroma, recuperação e geração com
+citação `[Fonte N]` funcionaram no corpus descrito; o modelo recusou responder
+sem evidência. Isso não prova a implementação atual, segurança das dependências,
+qualidade em corpus real e maior, PDFs escaneados, recall@k/groundedness,
+concorrência nem desempenho de embeddings em GPU. Esses itens seguem o roteiro
+de [[07-Implementacao-Casa/03-RAG-deploy]] e devem ser registrados em
+[[99-Templates/Registro-de-benchmark]].
 
 ## Log (caminhos locais anonimizados)
 

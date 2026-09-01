@@ -2,6 +2,11 @@
 
 <!-- validador: sem-referencias: ata de sessão; as evidências estão nas notas e commits citados -->
 
+> [!note] Registro histórico
+> Esta ata descreve o pipeline Chroma/pypdf então vigente. O estado atual e os
+> gates do patch endurecido ficam em [[00-Inicio/Auditoria-P0]] e
+> [[04-Software/Estado-de-testes-cookbooks]].
+
 | Campo | Valor |
 |---|---|
 | Data | 2026-09-01 |

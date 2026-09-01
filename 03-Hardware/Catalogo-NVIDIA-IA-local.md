@@ -1,5 +1,7 @@
 # Catálogo NVIDIA para IA local — especificações e sizing
 
+<!-- validador: sem-formulas: a planilha homônima é um snapshot tabular estático do catálogo; não contém modelo de cálculo -->
+
 **Data de verificação:** 1º de setembro de 2026. **Objetivo:** comparar capacidade de memória e características de GPU com modelos locais.
 
 ## Como interpretar
