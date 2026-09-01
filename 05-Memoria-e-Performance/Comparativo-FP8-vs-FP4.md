@@ -94,3 +94,21 @@ O comparativo deve conter duas colunas de evidência: `suporte_de_hardware` e `t
 [4]: https://arxiv.org/abs/2209.05433 "FP8 Formats for Deep Learning"
 [5]: https://github.com/ml-explore/mlx "MLX — Apple machine learning framework"
 [6]: https://github.com/ggml-org/llama.cpp "llama.cpp — quantização e inferência"
+
+## Amostragem gráfica das métricas
+
+As visualizações abaixo foram geradas a partir da aba `Metricas` da planilha `03-Hardware/Catalogo-NVIDIA-IA-local.xlsx`, em 1º de setembro de 2026.
+
+![Memória elementar dos pesos FP8 versus FP4](../03-Hardware/grafico-fp8-vs-fp4-memoria-modelos.png)
+
+A memória elementar dos pesos é calculada por `parâmetros × bits / 8`. O gráfico não inclui escalas, metadados, buffers, KV cache ou margem operacional. Para sizing, use a memória real do arquivo quantizado e adicione folga.
+
+![Teto teórico de tokens FP8 versus FP4](../03-Hardware/grafico-fp8-vs-fp4-teto-tokens.png)
+
+O teto teórico usa `banda em GB/s ÷ tamanho elementar dos pesos em GB` para um modelo hipotético de 8B. FP4 aparece aproximadamente 2× acima de FP8 porque movimenta metade dos bytes, mas isso só se aproxima do resultado real quando o kernel, o hardware, a quantização e o runtime conseguem explorar a representação.
+
+![Teto teórico de tokens por watt FP8 versus FP4](../03-Hardware/grafico-fp8-vs-fp4-tokens-por-watt.png)
+
+A razão tokens/s por watt é um teto derivado de especificação, calculado como `(banda ÷ bytes dos pesos) ÷ potência da placa`. Ela não é custo-benefício financeiro nem benchmark observado. Para publicar tokens/s/W real, substitua o teto por potência medida na tomada e tokens/s medidos com o mesmo modelo, contexto, runtime e número de repetições.
+
+A amostragem não classifica automaticamente uma GPU como boa ou ruim. Uma placa pode ter excelente eficiência teórica e não suportar o formato FP4 no runtime escolhido; inversamente, uma plataforma com menor teto de banda pode vencer em capacidade, compatibilidade ou qualidade. A aba `FP8_vs_FP4` contém a matriz qualitativa de escolha e a aba `Metricas` contém os campos normalizados para medições futuras.
