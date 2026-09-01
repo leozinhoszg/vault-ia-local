@@ -33,6 +33,7 @@
 ## Auditoria e operação
 
 - [[00-Inicio/Auditoria-P0]]
+- [[00-Inicio/Sessoes/2026-09-01-sessao-re-auditoria-P0]]
 
 ## Operação e manutenção
 
