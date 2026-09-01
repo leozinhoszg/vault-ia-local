@@ -7,6 +7,11 @@
 | Fonte | Conteúdo |
 |---|---|
 | [llama.cpp](https://github.com/ggml-org/llama.cpp) | Inferência C/C++, GGUF, quantização e backends. |
+| [llama.cpp — build e backends](https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md) | CUDA, Vulkan, Metal e `--n-gpu-layers` (offload de camadas); base de [[01-Fundamentos/Carregar-um-peso]]. |
+| [GGUF](https://github.com/ggml-org/ggml/blob/master/docs/gguf.md) | Especificação do formato: arquivo único, metadados, tensores, mmap. |
+| [Ollama — FAQ](https://docs.ollama.com/faq) | keep_alive (5 min), `num_ctx`/`OLLAMA_CONTEXT_LENGTH` (padrão 4096), `ollama ps` (GPU/CPU). Os docs migraram de github.com/ollama/ollama/docs para docs.ollama.com; verificado em 2026-09-01. |
+| [Ollama — GPU](https://docs.ollama.com/gpu) | Suporte a NVIDIA, AMD ROCm, Apple Metal e Vulkan. |
+| [HF LLM Course — tokenizers](https://huggingface.co/learn/llm-course/chapter2/4) | Tokenização por palavra, caractere e subpalavra; base de [[01-Fundamentos/Parametros-e-tokens]]. |
 | [Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B) | Parâmetros, contexto, licença e exemplos de serving. |
 | [Qwen3.8-Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next) | Parâmetros totais/ativos e MoE. |
 | [Qwen3.6-35B-A3B](https://huggingface.co/Qwen/Qwen3.6-35B-A3B) | Parâmetros totais/ativos. |

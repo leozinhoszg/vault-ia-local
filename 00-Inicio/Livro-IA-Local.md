@@ -8,6 +8,12 @@ Leia os capítulos na ordem quando estiver começando. Se você já conhece LLMs
 
 | Capítulo | Pergunta respondida |
 |---|---|
+| [[01-Fundamentos/00-Comece-aqui]] | O que acontece quando eu digito uma pergunta e aperto Enter? (para quem nunca usou) |
+| [[01-Fundamentos/Glossario-essencial]] | O que significam parâmetro, token, contexto, VRAM, offload e os outros termos? |
+| [[01-Fundamentos/Parametros-e-tokens]] | O que "200M" ou "24B" parâmetros significam e o que têm a ver com tokens? |
+| [[01-Fundamentos/Entrada-e-saida]] | O que entra no modelo, o que sai e o que é a janela de contexto? |
+| [[01-Fundamentos/Carregar-um-peso]] | O que é carregar um modelo e em que momento GPU, RAM e CPU trabalham? |
+| [[03-Hardware/Por-que-VRAM-RAM-e-CPU-importam]] | Por que mais VRAM, RAM ou CPU importa — e o que cada uma não compra? |
 | [[01-Fundamentos/LLM-e-inferencia]] | O que é um LLM e como uma geração acontece? |
 | [[01-Fundamentos/Regressao-ML]] | Como regressão se relaciona a previsão, avaliação e sistemas de IA local? |
 | [[05-Memoria-e-Performance/Quantizacao-livro]] | O que é quantização, o que é FP4 e qual formato escolher? |

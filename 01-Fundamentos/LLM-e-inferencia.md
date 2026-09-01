@@ -20,6 +20,8 @@ A latência percebida é separada em TTFT (time to first token) e velocidade de 
 
 Não compare apenas parâmetros totais. Para MoE, registre **parâmetros totais, parâmetros ativos, número de experts, contexto nativo e formato do checkpoint**. Veja [[02-Modelos/Como-ler-um-model-card]].
 
+Versão introdutória, para quem nunca usou IA local: [[01-Fundamentos/00-Comece-aqui]], [[01-Fundamentos/Parametros-e-tokens]], [[01-Fundamentos/Entrada-e-saida]] e [[01-Fundamentos/Carregar-um-peso]].
+
 *Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
 
 ## Referências

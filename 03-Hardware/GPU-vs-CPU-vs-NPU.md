@@ -18,3 +18,5 @@ NPU é um acelerador especializado com eficiência energética atraente para mod
 | Ecossistema LLM | Alto, depende do fornecedor | Muito alto | Em evolução |
 | Eficiência em workload compatível | Alta | Média | Muito alta |
 | Facilidade de depuração | Alta | Alta | Menor |
+
+Para entender o que cada peça faz em cada momento da geração e o que mais VRAM, RAM ou CPU compram (ou não), veja [[03-Hardware/Por-que-VRAM-RAM-e-CPU-importam]] e [[01-Fundamentos/Carregar-um-peso]].
