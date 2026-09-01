@@ -1,6 +1,6 @@
 # Guia financeiro — TCO de IA local versus API da OpenAI
 
-> **Última atualização:** 2026-09-01 (revisão 2: correção do câmbio no break-even da planilha e sensibilidade ampliada).
+> **Última atualização:** 2026-09-01 (revisão 3: aba `Checks`, anuidade opcional, tabelas estruturadas e valores recalculados pelo Excel; revisão 2 corrigiu o câmbio no break-even).
 
 > **Escopo.** Este capítulo compara o custo total de propriedade de uma infraestrutura local de inferência com o custo variável da API da OpenAI. Ele é um modelo de decisão, não uma cotação, promessa de economia ou recomendação financeira personalizada. Todas as premissas devem ser substituídas por dados da empresa.
 
@@ -117,17 +117,18 @@ Varie pelo menos: câmbio ±20%; tarifa de energia ±30%; utilização 10/25/50/
 
 ## 10. O que a planilha calcula
 
-A planilha `TCO-local-vs-OpenAI.xlsx` (revisão 2, 2026-09-01) possui as abas `Premissas`, `API_OpenAI`, `Local`, `Break_even`, `Sensibilidade` e `README`. Altere somente as células amarelas de `Premissas`, mantenha a unidade em milhões de tokens e verifique se o mix soma o volume total. O arquivo é salvo sem valores em cache; abra no Excel ou LibreOffice e force o recálculo antes de ler resultados.
+A planilha `TCO-local-vs-OpenAI.xlsx` (revisão 3, 2026-09-01) possui as abas `Premissas`, `API_OpenAI`, `Local`, `Break_even`, `Sensibilidade`, `Checks` e `README`, cada bloco de dados como tabela estruturada (`tPremissas`, `tAPI`, `tLocal`, `tBreakEven`, `tSensCambio`, `tSensVidaUtil`, `tSensUtilizacao`, `tSensTarifa`, `tChecks`). Altere somente as células amarelas de `Premissas`, mantenha a unidade em milhões de tokens e verifique se o mix soma o volume total. O arquivo é salvo pelo Excel com valores em cache; após editar por script, execute `99-Templates/recalcular_tco.ps1` (Excel via COM) e confira com `python 99-Templates/check_tco.py`, que recalcula TCO, custo API e break-evens em um modelo Python independente e exige `Checks!STATUS GERAL = PASS`.
 
 | Aba | O que calcula |
 |---|---|
 | `Premissas` | Câmbio efetivo, CAPEX, vida útil, valor residual, energia, custos fixos mensais, utilização, mix de tokens, velocidade de decode, data de consulta, fator Batch, fatores de sobretaxa de contexto longo **por categoria** (entrada, cached e saída) e cache writes. |
 | `API_OpenAI` | Custo mensal em USD por modelo, aplicando os fatores por categoria e o cache write; custo em BRL pelo câmbio efetivo; coluna adicional com o fator Batch. |
-| `Local` | CAPEX amortizado como `(CAPEX − valor residual) / vida útil`, energia, refrigeração, manutenção, operação, TCO mensal, capacidade em tokens e custo local por milhão de tokens. |
+| `Local` | CAPEX amortizado linear `(CAPEX − valor residual) / vida útil` ou, se `Método de CAPEX = 1`, anuidade com a taxa de desconto anual de `Premissas` (fórmula da seção 3, com taxa mensal equivalente); energia, refrigeração, manutenção, operação, TCO mensal, capacidade em tokens e custo local por milhão de tokens. Linhas informativas mostram os dois métodos lado a lado. |
 | `Break_even` | Custo API blended em BRL por milhão de tokens no mix atual, break-even em tokens/mês (`TCO local ÷ blended BRL/M`), variante com Batch e status. |
-| `Sensibilidade` | Quatro blocos: câmbio (4,40 a 6,60), vida útil (24/36/48 meses), utilização (10/25/50/80%) e tarifa de energia (−30% a +30%), cada um com efeito no TCO local e nos break-evens. |
+| `Sensibilidade` | Quatro blocos: câmbio (4,40 a 6,60), vida útil (24/36/48 meses, amortização linear), utilização (10/25/50/80%) e tarifa de energia (−30% a +30%), cada um com efeito no TCO local e nos break-evens. |
+| `Checks` | Reconciliação por fórmulas independentes: TCO local, três break-evens, custo API Sol, soma e validade do mix, premissas obrigatórias preenchidas, vida útil e câmbio positivos; `STATUS GERAL` = PASS/FAIL. Coluna de referência com os valores das premissas padrão. |
 
-Limitações conhecidas da revisão 2: a amortização é linear e ignora taxa de desconto (a fórmula de anuidade da seção 3 não está na planilha); o fator Batch é aplicado ao custo inteiro e não distingue a parcela elegível; sensibilidades de qualidade, downtime e equipe da seção 12 permanecem qualitativas. O resultado é uma ferramenta de planejamento; valide contra fatura real, wattímetro, benchmark e disponibilidade.
+Limitações conhecidas da revisão 3: o bloco de vida útil da sensibilidade usa sempre amortização linear; o fator Batch é aplicado ao custo inteiro e não distingue a parcela elegível; sensibilidades de qualidade, downtime e equipe da seção 12 permanecem qualitativas. O resultado é uma ferramenta de planejamento; valide contra fatura real, wattímetro, benchmark e disponibilidade.
 
 ## 11. Decisão empresarial
 

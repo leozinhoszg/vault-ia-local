@@ -16,7 +16,7 @@ A fonte canônica de quantização é [[05-Memoria-e-Performance/Quantizacao-liv
 
 ## Validação obrigatória
 
-Executar `python3 99-Templates/validate_vault_completo.py` antes de empacotar ou publicar. Erros de links, Python, fórmulas, caminhos absolutos, segredos ou rastros sensíveis bloqueiam a entrega. Avisos de data ou referências devem ser tratados ou justificados no relatório.
+Executar `python3 99-Templates/validate_vault_completo.py --strict`, `python3 99-Templates/gerar_indice_urls.py --check` e `python3 99-Templates/check_tco.py` antes de empacotar ou publicar; o mesmo gate roda em `.github/workflows/validate.yml`. Após editar a planilha por script, recalcular com `99-Templates/recalcular_tco.ps1` para preservar valores em cache. Ao alterar `requirements-rag.txt`, regenerar o lockfile e `requirements-rag.lock.sha256`. Erros de links, Python, fórmulas, caminhos absolutos, segredos ou rastros sensíveis bloqueiam a entrega. Avisos de data ou referências devem ser tratados ou justificados no relatório.
 
 ## Critérios de revisão
 

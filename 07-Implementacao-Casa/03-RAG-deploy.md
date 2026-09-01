@@ -35,6 +35,8 @@ O selftest cria dois documentos temporários, indexa no Chroma com um embedding 
 
 ## Smoke test funcional
 
+Evidência da última reprodução em ambiente limpo (lockfile, selftest e recuperação com embedding real; sem Ollama): [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]].
+
 Coloque um arquivo `docs/teste.md` contendo uma afirmação conhecida. Execute o comando de consulta e aceite somente uma resposta que contenha `[Fonte N]`, não apresente traceback e recupere o arquivo de teste. Registre SO, Python, versões, modelo, hash, latência e resultado em [[99-Templates/Registro-de-benchmark]]. O validador confirma sintaxe Python, mas não substitui esse teste funcional.
 
 ## Produção

@@ -42,9 +42,13 @@
 - [[04-Software/Estado-de-testes-cookbooks]]
 - [[99-Templates/validate_vault_completo.py]]
 - [[99-Templates/gerar_indice_urls.py]]
+- [[99-Templates/check_tco.py]]
+- [[99-Templates/recalcular_tco.ps1]]
+- [[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]]
 
 ## Fontes e reprodução
 
 - [[11-Referencias/Fontes-principais]]
 - [[11-Referencias/Indice-de-fontes-urls]]
 - [[07-Implementacao-Casa/requirements-rag.txt]]
+- [[07-Implementacao-Casa/requirements-rag.lock.txt]]

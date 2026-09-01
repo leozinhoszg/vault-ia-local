@@ -1,0 +1,64 @@
+name: validate-vault
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  gate:
+    name: Gate editorial e técnico
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Dependências do validador
+        run: python -m pip install --quiet openpyxl==3.1.5
+      - name: Validador completo (links, Python, fórmulas, segredos; avisos não justificados falham)
+        run: python 99-Templates/validate_vault_completo.py --strict
+      - name: Índice de URLs está atualizado
+        run: python 99-Templates/gerar_indice_urls.py --check
+      - name: Lockfile existe e não mudou silenciosamente
+        run: cd 07-Implementacao-Casa && sha256sum -c requirements-rag.lock.sha256
+      - name: Planilha TCO reconciliada com modelo independente (exige valores em cache)
+        run: python 99-Templates/check_tco.py
+      - name: Selftest do pipeline RAG (chromadb/pypdf/numpy pinados; sem torch)
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install --quiet chromadb==1.0.20 pypdf==6.0.0 numpy==2.3.2 requests==2.32.5
+          .venv/bin/python 07-Implementacao-Casa/RAG-local-executavel.py --selftest
+      - name: Relatórios como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-validacao
+          path: |
+            VALIDACAO-COMPLETA.md
+            VALIDACAO.md
+
+  release:
+    name: Release versionada
+    needs: gate
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Empacotar vault com checksum
+        run: |
+          VERSION="${GITHUB_REF_NAME}"
+          git archive --format=zip --prefix="vault-ia-local-${VERSION}/" -o "vault-ia-local-${VERSION}.zip" HEAD
+          sha256sum "vault-ia-local-${VERSION}.zip" > "vault-ia-local-${VERSION}.zip.sha256"
+          awk '/^## Changelog/{f=1} f' MEMORY.md > RELEASE_NOTES.md
+      - name: Publicar release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: RELEASE_NOTES.md
+          files: |
+            vault-ia-local-*.zip
+            vault-ia-local-*.zip.sha256

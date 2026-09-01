@@ -1,8 +1,8 @@
 # Validação do vault
 
 - Data: 2026-09-01
-- Arquivos Markdown no pacote: 72 (este relatório incluído)
-- Arquivos Markdown verificados: 71 (excluído este relatório; o validador completo exclui também `VALIDACAO-COMPLETA.md` e por isso informa 70)
+- Arquivos Markdown no pacote: 73 (este relatório incluído)
+- Arquivos Markdown verificados: 72 (excluído este relatório; o validador completo exclui também `VALIDACAO-COMPLETA.md` e por isso informa 71)
 - Links internos ausentes: 0
 - Nenhum link interno ausente encontrado.
 

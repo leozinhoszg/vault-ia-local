@@ -1,8 +1,14 @@
 # Vault: IA Local
 
+<!-- validador: sem-referencias: nota de apresentação e navegação; fontes ficam nas notas e em 11-Referencias -->
+
 Este vault é uma base de conhecimento em português brasileiro para **entender, escolher, instalar, operar e governar IA local** em casa ou em uma empresa. Ele cobre LLMs e VLMs, hardware x86/ARM, GPU/CPU/NPU, memória e banda, quantização incluindo FP4, runtimes, RAG, agentes, treinamento e fine-tuning, custos e operação segura.
 
 > **Data de referência:** 1º de setembro de 2026. Modelos, preços, drivers e compatibilidades mudam rapidamente. Trate números de custo como faixas de planejamento, não como cotação.
+
+## Validação e CI
+
+O gate do vault roda localmente com `python 99-Templates/validate_vault_completo.py --strict`, `python 99-Templates/gerar_indice_urls.py --check` e `python 99-Templates/check_tco.py`, e no GitHub Actions em `.github/workflows/validate.yml` a cada push/PR (release com checksum em tags `v*`). O estado das correções e as pendências estão em [[00-Inicio/Auditoria-P0]].
 
 ## Como usar
 

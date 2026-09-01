@@ -89,3 +89,4 @@ lines += ['', '## Avisos justificados'] + ([f'- {x}' for x in justified] or ['- 
 report.write_text(chr(10).join(lines)+chr(10),encoding='utf-8')
 print(json.dumps({'markdown_pacote':len(all_md),'markdown_analisados':len(md),'errors':len(errors),'warnings':len(warnings),'justified':len(justified)},ensure_ascii=False))
 if errors: sys.exit(1)
+if '--strict' in sys.argv and warnings: print('STRICT: avisos não justificados'); sys.exit(1)
