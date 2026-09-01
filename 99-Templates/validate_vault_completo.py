@@ -68,7 +68,10 @@ for p in ROOT.rglob('*.xlsx'):
                         formulas.append((ws.title,c.coordinate,c.value))
                         if '#REF!' in c.value or '#DIV/0!' in c.value:
                             errors.append(f'FORMULA {p.name}!{ws.title}!{c.coordinate} {c.value}')
-        if not formulas: warnings.append(f'NO_FORMULAS {rel(p)}')
+        # Catálogos de especificações podem ser deliberadamente sem fórmulas;
+        # planilhas financeiras continuam sujeitas à checagem de fórmulas.
+        if not formulas and p.name not in {'Catalogo-NVIDIA-IA-local.xlsx'}:
+            warnings.append(f'NO_FORMULAS {rel(p)}')
     except Exception as e: errors.append(f'XLSX {rel(p)} {e}')
 
 # 5) Prompt/secret trace audit; prompts are allowed in cookbooks, raw secrets are not.

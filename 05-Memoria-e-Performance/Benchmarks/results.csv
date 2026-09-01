@@ -1,0 +1,1 @@
+run_id,measured_at,model_id,model_revision,model_file_sha256,quantization,hardware_id,gpu_count,os,kernel,driver,runtime,runtime_version,context_tokens,prompt_tokens,generation_tokens,batch,concurrency,ttft_ms,prompt_tok_s,decode_tok_s,p50_ms,p95_ms,vram_mb,ram_mb,power_wall_w,temp_c,quality_dataset,quality_metric,quality_value,status,raw_artifact,notes

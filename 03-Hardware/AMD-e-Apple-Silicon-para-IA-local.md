@@ -51,7 +51,7 @@ O primeiro gráfico apresenta um teto didático para um modelo de 8B Q4, calcula
 
 O segundo gráfico apresenta capacidade de memória contra largura de banda. Ele ajuda a localizar plataformas capazes de carregar modelos maiores, mas não mede qualidade, latência, compatibilidade ou velocidade de geração.
 
-## Fontes
+## Referências
 
 [1]: https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html "AMD Radeon RX 7900 XTX"
 [2]: https://www.amd.com/en/products/graphics/workstations/radeon-pro/w7900.html "AMD Radeon PRO W7900"

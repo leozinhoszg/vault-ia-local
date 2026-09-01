@@ -45,3 +45,16 @@
 - [[11-Referencias/Fontes-principais]]
 - [[11-Referencias/Indice-de-fontes-urls]]
 - [[07-Implementacao-Casa/requirements-rag.txt]]
+
+## P0 — Benchmark e aquisição
+
+- [[05-Memoria-e-Performance/Benchmarks/README]] — especificação do benchmark real por hardware e modelo.
+- [[03-Hardware/BOMs/README]] — padrão de BOM brasileira real, datada e cotada.
+- [[03-Hardware/BOMs/BOM-RTX-5090]] — ficha de cotação para RTX 5090.
+- [[03-Hardware/BOMs/BOM-RTX-4090]] — ficha de cotação para RTX 4090.
+- [[03-Hardware/BOMs/BOM-RX-7900-XTX]] — ficha de cotação para RX 7900 XTX.
+- [[03-Hardware/BOMs/BOM-Mac-Studio-M4-Max]] — ficha de cotação para Mac Studio M4 Max.
+- [[99-Templates/run_benchmark.py]] e [[99-Templates/validate_benchmarks.py]] — harness e validador do schema.
+- O CI está em `.github/workflows/validate.yml` e executa o validador completo, o schema de benchmarks, os testes RAG, o lockfile e o TCO.
+
+<!-- validador: sem-referencias: índice de navegação; as fontes estão nas notas técnicas vinculadas e em 11-Referencias -->
