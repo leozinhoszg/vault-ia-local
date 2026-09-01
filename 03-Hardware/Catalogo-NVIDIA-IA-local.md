@@ -78,3 +78,20 @@ O resultado deve ser anexado à [[02-Modelos/Ficha-padronizada-por-modelo]] e à
 [6]: https://github.com/ggerganov/llama.cpp "llama.cpp — llama-bench e backends"
 [7]: https://docs.vllm.ai/ "vLLM — serving e benchmarks"
 [8]: https://mlcommons.org/benchmarks/client/ "MLPerf Client — benchmark para PCs"
+
+## Plataformas AMD e Apple Silicon adicionadas ao comparativo
+
+A planilha contém uma aba `Metricas` com as plataformas abaixo. Elas entram como comparação de capacidade e memória, não como equivalentes automáticas de CUDA.
+
+| Plataforma | Memória | Banda | Potência | Modelos de referência | Evidência |
+|---|---:|---:|---:|---|---|
+| AMD Radeon RX 7900 XTX | 24 GB GDDR6 | 960 GB/s | 355 W | 8B/14B; 27B Q4; 70B com multi-GPU/offload | Especificação AMD; runtime ROCm depende da combinação de versão e SO |
+| AMD Radeon RX 7900 XT | 20 GB GDDR6 | 800 GB/s | 315 W | 8B/14B; 27B Q4 ajustado | Especificação secundária/AMD; confirmar ROCm |
+| AMD Radeon RX 7800 XT | 16 GB GDDR6 | 624 GB/s | 263 W | 8B/14B; 27B Q4 curto | Especificação secundária/AMD; confirmar ROCm |
+| AMD Radeon RX 9070 XT | 16 GB GDDR6 | 640 GB/s | 304 W | 8B/14B; 27B Q4 apertado | Confirmar na matriz ROCm da versão utilizada |
+| AMD Radeon PRO W7900 | 48 GB GDDR6 ECC | 864 GB/s | 295 W | 27B–70B Q4 com contexto dimensionado | AMD profissional; validar suporte ROCm |
+| Apple M4 Max 40-core / 64 GB | 64 GB unified | 546 GB/s | Não publicado como TDP de chip | 8B–70B conforme quantização/contexto | Apple; capacidade não é tokens/s |
+| Apple M4 Max 40-core / 128 GB | 128 GB unified | 546 GB/s | Não publicado como TDP de chip | 8B–modelos muito grandes conforme runtime | Apple; memória compartilhada com o sistema |
+| Apple M4 Ultra | Não confirmado | Não confirmado | Não confirmado | Não usar em sizing | Nenhuma ficha oficial encontrada |
+
+Consulte [[03-Hardware/AMD-e-Apple-Silicon-para-IA-local]] para a análise de software, compatibilidade e critérios de escolha. Consulte [[03-Hardware/Referencias-de-desempenho-GPU]] para a metodologia de tokens/s, TTFT, P50/P95 e tokens/s por watt.
