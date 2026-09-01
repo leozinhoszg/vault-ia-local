@@ -19,7 +19,7 @@
 | Preços | Data de consulta, Batch, contexto longo e cache writes são premissas editáveis. | Mantido com ressalva: revalidar preços e contrato antes de uso. |
 | Estrutura da planilha | Verificado com `openpyxl`: na revisão 2 não havia tabelas estruturadas (a alegação de tabelas em `A1:H1`/`A1:H19` não procedia), apenas autofiltros herdados curtos. | Revisão 3: `99-Templates/recalcular_tco.ps1` cria tabelas estruturadas reais (`tBreakEven` A1:H4, quatro tabelas em `Sensibilidade` até A19:F24, `tPremissas`, `tAPI`, `tLocal`, `tChecks`), recalcula no Excel e salva com valores em cache. |
 | Aba `Checks` e conferência | `Checks` reconcilia TCO, três break-evens, custo API, mix e premissas por fórmulas independentes; `99-Templates/check_tco.py` recalcula tudo em Python e compara com os valores em cache. | `STATUS GERAL = PASS`; `check_tco.py` exit 0 (TCO 1.768,50; 51,35 / 92,51 / 925,08). Anuidade com taxa de desconto implementada como opção (`Método de CAPEX = 1`). |
-| Lockfile e gate | `requirements-rag.lock.txt` (uv, hashes, Windows/Py3.11) + `requirements-rag.lock.sha256`; validador `--strict`; `gerar_indice_urls.py --check`; workflow `.github/workflows/validate.yml`. | Gate local: validador exit 0, 0 erros, 0 avisos não justificados; CI configurado para push/PR e release por tag (a primeira execução no GitHub ainda precisa ser observada). |
+| Lockfile e gate | `requirements-rag.lock.txt` (uv, hashes, Windows/Py3.11) + `requirements-rag.lock.sha256`; validador `--strict`; `gerar_indice_urls.py --check`; workflow `.github/workflows/validate.yml`. | Gate local: validador exit 0, 0 erros, 0 avisos não justificados. CI observado: execução `33524666554` em `main` (commit `2cf7e2a`), job "Gate editorial e técnico" = success em ubuntu-latest (validador `--strict`, índice, sha256, `check_tco.py` com valores em cache, selftest do RAG); job de release ignorado por não haver tag. |
 
 ## Método de verificação do break-even
 
@@ -30,7 +30,7 @@ As fórmulas foram lidas com `openpyxl`, todas as referências de célula foram 
 - Geração via Ollama com resposta `[Fonte N]` em corpus real: exige instalar Ollama e baixar um modelo nesta máquina ou em outra; não executada.
 - Bloco de vida útil da `Sensibilidade` usa amortização linear mesmo com `Método de CAPEX = 1`; o fator Batch é aplicado a 100% do custo.
 - Preços da API são premissas datadas e devem ser reconsultados na data da decisão.
-- Primeira execução do workflow no GitHub Actions ainda não observada; o job de release só roda em tags `v*`.
+- O job de release só roda em tags `v*`; nenhuma release foi publicada ainda.
 
 ## Fora do alcance desta auditoria (exigem hardware ou ambiente real)
 
