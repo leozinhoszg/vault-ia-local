@@ -37,5 +37,5 @@ Meça modelo inteiro em uma GPU, TP=2, PP=2 e offload para CPU. Compare tokens/s
 ## Referências
 
 [1]: https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html "vLLM — distributed inference"
-[2]: https://docs.nvidia.com/nvidia-hpc-benchmarks/NVLink_Benchmarks.html "NVIDIA — NVLink benchmarks"
-[3]: https://docs.nvidia.com/networking/display/ibta "InfiniBand Trade Association"
+[2]: https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/troubleshooting/performance_and_tuning.html "NVIDIA NCCL — performance e tuning"
+[3]: https://networking-docs.nvidia.com/mlnxofedswum/24101140lts/user-manual "NVIDIA MLNX_OFED LTS — user manual"
