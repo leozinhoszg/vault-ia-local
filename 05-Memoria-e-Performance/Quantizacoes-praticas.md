@@ -32,7 +32,9 @@ Quantizar o KV cache para INT8, Q8, Q4 ou FP8 reduz memória de contexto e conco
 
 Escolha pela combinação de qualidade no seu conjunto de testes, memória máxima, velocidade, suporte ao hardware, licença, facilidade de rollback e possibilidade de exportação. Compare sempre o mesmo modelo base e a mesma janela de contexto.
 
-**Referências**
+*Última atualização: 2026-09-01. Próxima revisão: 2026-10-01.*
+
+## Referências
 
 [1]: https://github.com/ggml-org/llama.cpp "GGUF e quantização no llama.cpp"
 [2]: https://huggingface.co/docs/transformers/en/quantization/bitsandbytes "bitsandbytes, 8-bit e 4-bit"

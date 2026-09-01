@@ -36,3 +36,13 @@ ls -lh models/
 ```
 
 Meça a memória máxima no seu runtime; a fórmula é triagem, não benchmark.
+
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
+## Referências
+
+[1]: https://github.com/ggml-org/llama.cpp "llama.cpp — formatos GGUF, tamanhos de quantização e offload"
+[2]: https://huggingface.co/docs/transformers/en/quantization/bitsandbytes "Hugging Face — quantização 8-bit e 4-bit (NF4)"
+[3]: https://docs.vllm.ai/ "vLLM — KV cache paginado e memória de serving"
+
+Ver também [[05-Memoria-e-Performance/Modelo-de-memoria]] e [[05-Memoria-e-Performance/KV-cache-formula-e-exemplos]] para a parcela de KV cache.

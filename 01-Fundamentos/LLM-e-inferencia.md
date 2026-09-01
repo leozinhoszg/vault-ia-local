@@ -20,7 +20,9 @@ A latência percebida é separada em TTFT (time to first token) e velocidade de 
 
 Não compare apenas parâmetros totais. Para MoE, registre **parâmetros totais, parâmetros ativos, número de experts, contexto nativo e formato do checkpoint**. Veja [[02-Modelos/Como-ler-um-model-card]].
 
-**Referências**
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
+## Referências
 
 [1]: https://ai.meta.com/blog/llama-4-multimodal-intelligence/ "Meta: The Llama 4 herd"
 [2]: https://github.com/ggml-org/llama.cpp "llama.cpp: LLM inference in C/C++"

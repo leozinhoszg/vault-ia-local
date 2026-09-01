@@ -1,0 +1,8 @@
+# Artefatos locais do RAG e ambientes Python
+rag_db/
+.venv/
+__pycache__/
+*.pyc
+# Estado de janela do Obsidian (específico da máquina)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json

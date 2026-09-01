@@ -28,7 +28,9 @@ No Windows, valide primeiro a matriz AMD e o caminho oficial para a versão do R
 
 Fixe imagem Docker, driver, toolkit, runtime, modelo, quantização e commit. Rode smoke test de geração, multimodalidade, tool calling e structured output. Meça memória e velocidade no mesmo SO que será usado em produção.
 
-**Referências**
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
+## Referências
 
 [1]: https://rocm.docs.amd.com/en/latest/compatibility/compatibility-matrix.html "AMD ROCm 10.0.0 compatibility matrix"
 [2]: https://docs.nvidia.com/cuda/ "NVIDIA CUDA documentation"

@@ -17,7 +17,7 @@ Esta é uma shortlist para avaliação local em 2026. “Cabe” significa **est
 
 Os números Qwen3.8 e Qwen3.6 acima são do model card oficial, enquanto os números de Llama 4 são da publicação da Meta. A shortlist de coding e os resultados de velocidade/VRAM foram adicionados a partir do guia da Atomic, com caráter editorial e dependência do hardware testado. A tabela deliberadamente não fixa preços: disponibilidade e câmbio mudam diariamente. Para escolher, faça uma matriz com qualidade no seu conjunto de testes, memória, latência, licença e custo total.
 
-**Referências**
+## Referências
 
 [1]: https://huggingface.co/Qwen/Qwen3.8-27B "Qwen3.8-27B model card"
 [2]: https://huggingface.co/Qwen/Qwen3.8-Flash-Next "Qwen3.8-Flash-Next model card"

@@ -49,6 +49,8 @@ Colete timestamp, modelo, quantização, tokens de entrada/saída, contexto, con
 
 Correlação não prova causalidade. Latência tem caudas e filas; média pode esconder p95 ruim. Custo por token depende da utilização. Dados de uma GPU não generalizam para outra. Um modelo pode ajustar bem o histórico e falhar após atualização. Registre versão e mantenha um conjunto de aceitação congelado.
 
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
 ## Referências
 
 [1]: https://scikit-learn.org/stable/modules/linear_model.html "scikit-learn linear models"

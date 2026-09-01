@@ -16,7 +16,9 @@ Exemplos de fornecedores a comparar incluem AWS, Azure, Google Cloud, Oracle Clo
 
 `custo_local_mensal = CAPEX_amortizado + energia + refrigeração + manutenção + operação`
 
-`custo_api_mensal = tokens_entrada × preço_entrada + tokens_saída × preço_saída + armazenamento + egress`
+`custo_api_mensal = (tokens_entrada × preço_entrada + tokens_cached × preço_cached + tokens_saída × preço_saída) × câmbio_efetivo + armazenamento + egress`
+
+O exemplo numérico, a planilha e o break-even em tokens/mês estão em [[09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI]]; esta nota resume o critério.
 
 O break-even ocorre quando os dois custos são equivalentes **para a mesma qualidade, contexto, disponibilidade e carga**. Inclua utilização: uma GPU 24/7 com 10% de uso raramente compete com API pay-as-you-go apenas pelo preço por token.
 
@@ -31,3 +33,11 @@ Use a tarifa efetiva da sua distribuidora, incluindo impostos, bandeira e encarg
 ## Câmbio, imposto e garantia
 
 Para equipamento importado, some preço convertido, frete, imposto, ICMS quando aplicável, despacho, garantia, manutenção e risco cambial. Para GPU usada, modele vida útil residual e ausência de garantia. Depreciação econômica é preferível a tratar hardware como gratuito após a compra.
+
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
+## Referências
+
+[1]: https://openai.com/api/pricing/ "OpenAI API Pricing — preços por token, cached input e Batch"
+[2]: https://opendata.bcb.gov.br/dataset/exchange-rates-daily-bulletins "Banco Central — PTAX e boletins de câmbio"
+[3]: https://www.aneel.gov.br/ "ANEEL — tarifas e bandeiras de energia"

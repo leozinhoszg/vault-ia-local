@@ -32,7 +32,9 @@ rdma link
 
 Meça modelo inteiro em uma GPU, TP=2, PP=2 e offload para CPU. Compare tokens/s, TTFT, memória, largura de banda, uso de PCIe e estabilidade. Escolha a topologia pelo benchmark, não pelo número de GPUs.
 
-**Referências**
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
+## Referências
 
 [1]: https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html "vLLM — distributed inference"
 [2]: https://docs.nvidia.com/nvidia-hpc-benchmarks/NVLink_Benchmarks.html "NVIDIA — NVLink benchmarks"

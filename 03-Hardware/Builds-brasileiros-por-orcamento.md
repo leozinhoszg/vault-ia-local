@@ -65,7 +65,7 @@ A prioridade para LLM é: **VRAM/memória efetivamente disponível > largura de 
 
 Antes de comprar, confira comprimento e espessura da GPU, conectores, linhas PCIe reais, slot de captura, altura do cooler, fluxo de ar, PSU, disjuntores e UPS. Duas GPUs de 450–600 W podem tornar uma workstation comum inadequada mesmo quando o software funcionaria.
 
-**Referências**
+## Referências
 
 [1]: https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/ "NVIDIA RTX 5090 — 32 GB GDDR7"
 [2]: https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/ "NVIDIA RTX 4090 — 24 GB GDDR6X"

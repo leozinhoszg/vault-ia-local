@@ -1,5 +1,7 @@
 # Guia financeiro — TCO de IA local versus API da OpenAI
 
+> **Última atualização:** 2026-09-01 (revisão 2: correção do câmbio no break-even da planilha e sensibilidade ampliada).
+
 > **Escopo.** Este capítulo compara o custo total de propriedade de uma infraestrutura local de inferência com o custo variável da API da OpenAI. Ele é um modelo de decisão, não uma cotação, promessa de economia ou recomendação financeira personalizada. Todas as premissas devem ser substituídas por dados da empresa.
 
 ## 1. A unidade correta de comparação
@@ -85,7 +87,7 @@ Para a mistura mensal de 100M tokens de entrada, 20M cached input e 25M tokens d
 | GPT-5.6 Luna | `(100×0,2 + 20×0,02 + 25×1,2)×5,5 = R$277,20` |
 | Local | R$1.768,50/mês, independentemente dos tokens dentro da capacidade |
 
-Com o mix de 145M tokens/mês, os break-evens aproximados são **51,4M tokens/mês para Sol**, **92,5M para Terra** e **925M para Luna**, mantendo a mesma proporção de entrada, cache e saída. Neste exemplo, o local vence Sol e Terra em custo direto acima desses volumes, mas perde para Luna até aproximadamente 925M tokens/mês. Isso não prova equivalência de qualidade. Se a máquina local não entregar a mesma taxa de conclusão, a comparação deve incluir custo de intervenção, retrabalho e capacidade ociosa.
+Com o mix de 145M tokens/mês, o custo API blended é R$34,44/M para Sol, R$19,12/M para Terra e R$1,91/M para Luna (custo mensal em BRL dividido por 145M). Os break-evens aproximados são **51,4M tokens/mês para Sol**, **92,5M para Terra** e **925M para Luna**, mantendo a mesma proporção de entrada, cache e saída. Se a carga for elegível à Batch API com fator 0,5, o custo API cai pela metade e os break-evens dobram: cerca de 102,7M, 185M e 1.850M tokens/mês. Neste exemplo, o local vence Sol e Terra em custo direto acima desses volumes, mas perde para Luna até aproximadamente 925M tokens/mês. Isso não prova equivalência de qualidade. Se a máquina local não entregar a mesma taxa de conclusão, a comparação deve incluir custo de intervenção, retrabalho e capacidade ociosa.
 
 ## 8. Capacidade e custo por token local
 
@@ -115,18 +117,21 @@ Varie pelo menos: câmbio ±20%; tarifa de energia ±30%; utilização 10/25/50/
 
 ## 10. O que a planilha calcula
 
-A planilha `TCO-local-vs-OpenAI.xlsx` possui abas de premissas, API, local, cenários e break-even. Altere células amarelas, mantenha a unidade em milhões de tokens e verifique se o mix soma o volume total. O resultado é uma ferramenta de planejamento; valide contra fatura real, wattímetro, benchmark e disponibilidade.
+A planilha `TCO-local-vs-OpenAI.xlsx` (revisão 2, 2026-09-01) possui as abas `Premissas`, `API_OpenAI`, `Local`, `Break_even`, `Sensibilidade` e `README`. Altere somente as células amarelas de `Premissas`, mantenha a unidade em milhões de tokens e verifique se o mix soma o volume total. O arquivo é salvo sem valores em cache; abra no Excel ou LibreOffice e force o recálculo antes de ler resultados.
+
+| Aba | O que calcula |
+|---|---|
+| `Premissas` | Câmbio efetivo, CAPEX, vida útil, valor residual, energia, custos fixos mensais, utilização, mix de tokens, velocidade de decode, data de consulta, fator Batch, fatores de sobretaxa de contexto longo **por categoria** (entrada, cached e saída) e cache writes. |
+| `API_OpenAI` | Custo mensal em USD por modelo, aplicando os fatores por categoria e o cache write; custo em BRL pelo câmbio efetivo; coluna adicional com o fator Batch. |
+| `Local` | CAPEX amortizado como `(CAPEX − valor residual) / vida útil`, energia, refrigeração, manutenção, operação, TCO mensal, capacidade em tokens e custo local por milhão de tokens. |
+| `Break_even` | Custo API blended em BRL por milhão de tokens no mix atual, break-even em tokens/mês (`TCO local ÷ blended BRL/M`), variante com Batch e status. |
+| `Sensibilidade` | Quatro blocos: câmbio (4,40 a 6,60), vida útil (24/36/48 meses), utilização (10/25/50/80%) e tarifa de energia (−30% a +30%), cada um com efeito no TCO local e nos break-evens. |
+
+Limitações conhecidas da revisão 2: a amortização é linear e ignora taxa de desconto (a fórmula de anuidade da seção 3 não está na planilha); o fator Batch é aplicado ao custo inteiro e não distingue a parcela elegível; sensibilidades de qualidade, downtime e equipe da seção 12 permanecem qualitativas. O resultado é uma ferramenta de planejamento; valide contra fatura real, wattímetro, benchmark e disponibilidade.
 
 ## 11. Decisão empresarial
 
 A decisão madura costuma ser híbrida: local para dados sensíveis, baixa latência e carga previsível; API para picos, modelos maiores, experimentação e capacidade de fallback. Formalize SLA, residência, retenção, incidentes, RTO/RPO, orçamento, limite de API, fallback e critérios de desligamento. O menor custo nominal não é necessariamente o menor custo por resultado confiável.
-
-## Referências
-
-[1]: https://openai.com/api/pricing/ "OpenAI API Pricing"
-[2]: https://opendata.bcb.gov.br/dataset/exchange-rates-daily-bulletins "Banco Central — Exchange rates daily bulletins / PTAX"
-[3]: https://www.aneel.gov.br/ "ANEEL — tarifas e regulação"
-[4]: https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence "NIST AI RMF Generative AI Profile"
 
 ## 12. Sensibilidade ampliada e custo de qualidade
 
@@ -147,3 +152,10 @@ Para uma decisão empresarial, crie pelo menos três cenários: conservador, bas
 | Agressivo | 60–80% | <1 h | 48 meses | Baixa incremental | Local pode vencer com carga previsível. |
 
 Uma API pode parecer mais cara por token e ainda ser economicamente melhor quando evita compra antecipada, time operacional, indisponibilidade e retrabalho. Da mesma forma, local pode ser superior quando privacidade, latência, residência e volume estável têm valor econômico real. Registre cada valor em BRL, data e responsável pela premissa.
+
+## Referências
+
+[1]: https://openai.com/api/pricing/ "OpenAI API Pricing"
+[2]: https://opendata.bcb.gov.br/dataset/exchange-rates-daily-bulletins "Banco Central — Exchange rates daily bulletins / PTAX"
+[3]: https://www.aneel.gov.br/ "ANEEL — tarifas e regulação"
+[4]: https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence "NIST AI RMF Generative AI Profile"

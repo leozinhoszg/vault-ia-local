@@ -59,7 +59,7 @@ python convert_hf_to_gguf.py out/merged --outfile out/model-f16.gguf --outtype f
 
 Compare base, adapter, merged e GGUF quantizado em prompts de coding, regressão geral, segurança, formato e conjunto não visto. Publique a diferença de qualidade, memória e latência; se houver regressão, faça rollback.
 
-**Referências**
+## Referências
 
 [1]: https://arxiv.org/abs/2305.14314 "QLoRA"
 [2]: https://huggingface.co/docs/peft/index "PEFT"

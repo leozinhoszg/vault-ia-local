@@ -45,6 +45,8 @@ Teste sucesso, falha de ferramenta, JSON inválido, ferramenta indisponível, pr
 
 Use uma API compatível com OpenAI ou o protocolo do runtime, mas mantenha um dispatcher próprio que valide o schema antes de executar. Para coding, ferramentas mínimas são listar arquivos, ler arquivo, aplicar patch, executar testes e consultar busca local. Exija diff e revisão antes de escrever.
 
+*Última atualização: 2026-09-01. Próxima revisão: 2026-10-01.*
+
 ## Referências
 
 [1]: https://platform.openai.com/docs/guides/function-calling "Function calling e structured outputs"

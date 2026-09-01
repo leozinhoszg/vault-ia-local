@@ -45,6 +45,8 @@ Para uma máquina pessoal, Ollama/LM Studio/llama.cpp reduzem complexidade. Para
 
 Versione o model ID, hash/commit, arquivo de quantização, prompt de sistema, parâmetros de amostragem, ferramentas e corpus RAG. Armazene apenas os logs necessários e remova segredos. Um resultado local só é auditável se outra pessoa consegue reconstruir o ambiente.
 
+*Última atualização: 2026-09-01. Próxima revisão: 2026-10-01.*
+
 ## Referências
 
 [1]: https://github.com/ggml-org/llama.cpp "llama.cpp"

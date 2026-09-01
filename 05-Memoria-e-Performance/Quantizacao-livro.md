@@ -49,6 +49,8 @@ Use uma matriz de aceitação: qualidade geral, compilação do código gerado, 
 
 Escolha FP16/BF16 para baseline e treino; NF4 para QLoRA; GGUF para portabilidade; AWQ/GPTQ/FP8/FP4 para serving GPU quando o runtime os suportar; EXL2 para ExLlama; KV quantizado quando contexto/concor­rência forem o gargalo. Sempre mantenha o checkpoint original e uma quantização de rollback.
 
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
 ## Referências
 
 [1]: https://github.com/ggml-org/llama.cpp "llama.cpp e GGUF"

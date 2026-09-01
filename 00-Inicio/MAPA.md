@@ -1,5 +1,7 @@
 # Mapa do vault
 
+<!-- validador: sem-referencias: nota de navegação; as fontes ficam nas notas de destino e em 11-Referencias -->
+
 ## Sequência recomendada
 
 1. Defina o caso de uso, a sensibilidade dos dados, a latência e o número de usuários em [[08-Implementacao-Empresa/00-Definicao-de-requisitos]].
@@ -39,6 +41,7 @@
 - [[10-Operacao-e-Seguranca/Runbook]]
 - [[04-Software/Estado-de-testes-cookbooks]]
 - [[99-Templates/validate_vault_completo.py]]
+- [[99-Templates/gerar_indice_urls.py]]
 
 ## Fontes e reprodução
 

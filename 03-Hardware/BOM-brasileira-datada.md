@@ -33,3 +33,12 @@ Registre socket e BIOS, canais de memória, lanes PCIe reais e bifurcação, dis
 ## Aprovação
 
 A build só passa quando o modelo cabe com pesos + KV cache + margem, o benchmark atende o SLO, a PSU e refrigeração suportam a carga, a garantia está documentada e o TCO foi comparado à API em [[09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI]].
+
+*Última atualização do template: 2026-09-01. Cada cotação preenchida carrega a própria data; a ficha vazia não vence.*
+
+## Referências
+
+[1]: https://opendata.bcb.gov.br/dataset/exchange-rates-daily-bulletins "Banco Central — boletins diários de câmbio / PTAX para o câmbio de referência"
+[2]: https://www.aneel.gov.br/ "ANEEL — tarifas, bandeiras e regulação para a tarifa efetiva de energia"
+
+Fontes de preço de componentes são as URLs preenchidas na tabela; faixas de referência estão em [[03-Hardware/Builds-brasileiros-por-orcamento]] e o TCO em [[09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI]].

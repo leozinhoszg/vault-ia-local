@@ -27,7 +27,9 @@ G --> C
 
 O desenho correto começa pelo fluxo de dados, não pelo modelo mais famoso. Em empresa, mantenha uma fronteira explícita entre dados não confiáveis recuperados, instruções do sistema e ações com efeitos colaterais.
 
-**Referências**
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
+## Referências
 
 [1]: https://arxiv.org/abs/1706.03762 "Attention Is All You Need"
 [2]: https://ai.meta.com/blog/llama-4-multimodal-intelligence/ "Meta: Llama 4 e MoE multimodal"

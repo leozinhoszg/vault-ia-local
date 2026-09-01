@@ -33,7 +33,9 @@ Com 10 sessões de Qwen3.6-27B em 8K, a aproximação é 20 GiB somente de KV FP
 4. Some pesos quantizados, workspace, prefix cache e overhead.
 5. Reserve folga e teste OOM em canary.
 
-**Referências**
+*Última atualização: 2026-09-01. Próxima revisão: 2026-10-01.*
+
+## Referências
 
 [1]: https://huggingface.co/Qwen/Qwen3.6-27B "Qwen3.6-27B — arquitetura e hiperparâmetros"
 [2]: https://github.com/ggml-org/llama.cpp "llama.cpp — KV cache e backends"

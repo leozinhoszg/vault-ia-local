@@ -39,6 +39,8 @@ Teste modelos multilíngues se o corpus for português/inglês. Meça dimensão,
 
 Monte dois índices, um BM25 e um HNSW, para 100 documentos. Compare top-5, combine rankings e avalie dez perguntas. Depois altere o chunking e documente o efeito no recall e na precisão de citação.
 
+*Última atualização: 2026-09-01. Próxima revisão: 2026-10-01.*
+
 ## Referências
 
 [1]: https://sbert.net/ "Sentence Transformers"

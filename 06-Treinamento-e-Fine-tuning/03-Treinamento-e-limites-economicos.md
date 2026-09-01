@@ -24,3 +24,14 @@ Estime tokens, FLOPs, GPU-hours, energia, armazenamento, engenharia e avaliaçã
 3. Há preferências mensuráveis? Teste DPO/ORPO.
 4. Há corpus de domínio em escala? Avalie continued pretraining.
 5. Há orçamento, dados e equipe para um ciclo completo? Só então considere distillation ou pré-treino.
+
+*Última atualização: 2026-09-01. Próxima revisão: 2026-12-01.*
+
+## Referências
+
+[1]: https://arxiv.org/abs/2305.14314 "QLoRA: Efficient Finetuning of Quantized LLMs"
+[2]: https://arxiv.org/abs/2305.18290 "Direct Preference Optimization"
+[3]: https://huggingface.co/docs/peft/index "Hugging Face PEFT — adaptadores LoRA"
+[4]: https://huggingface.co/docs/trl/index "Hugging Face TRL — SFT, DPO e ORPO"
+
+Nota canônica: [[06-Treinamento-e-Fine-tuning/Fine-tuning-livro]].

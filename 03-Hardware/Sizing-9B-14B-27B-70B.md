@@ -116,6 +116,8 @@ ollama run NOME_DO_MODELO
 
 Se ocorrer OOM, reduza nesta ordem: contexto, batch, número de sequências, precisão do KV cache, quantização dos pesos e número de camadas no acelerador. Se a execução ficar lenta depois do offload parcial, isso é esperado: a memória do sistema tem banda muito menor que VRAM/HBM em muitos equipamentos.
 
+*Última atualização: 2026-09-01. Próxima revisão: 2026-10-01.*
+
 ## Referências
 
 [1]: https://github.com/ggml-org/llama.cpp "llama.cpp: backends, quantização e CPU+GPU híbrida"

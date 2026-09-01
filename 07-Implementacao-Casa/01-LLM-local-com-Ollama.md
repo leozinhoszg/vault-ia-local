@@ -24,3 +24,11 @@ curl http://localhost:11434/api/generate -d '{"model":"qwen3.5:4b","prompt":"Exp
 ## Alternativa explícita
 
 Use llama.cpp quando precisar de GGUF, controle fino de offload, CPU+GPU híbrido ou suporte a arquiteturas específicas. Consulte [[04-Software/Runtimes]].
+
+*Última atualização: 2026-09-01. Próxima revisão: 2026-10-01.*
+
+## Referências
+
+[1]: https://github.com/ollama/ollama "Ollama — instalação oficial e Modelfile"
+[2]: https://github.com/ollama/ollama/blob/main/docs/api.md "Ollama — API REST (/api/generate, /api/chat)"
+[3]: https://github.com/ggml-org/llama.cpp "llama.cpp — alternativa com GGUF e offload fino"
