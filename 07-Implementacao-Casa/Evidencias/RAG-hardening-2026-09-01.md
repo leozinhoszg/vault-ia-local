@@ -1,9 +1,10 @@
 # Evidência — hardening do RAG local (2026-09-01)
 
 > **TL;DR:** o patch `ffec088e2c2af03ff85d318673b6bcc7ab555539`
-> passou nos gates estático, editorial, de lock/SCA, selftest, embedding real e
-> PDF opt-in descritos abaixo. A geração com Ollama e a instalação do lock em
-> Windows limpo permanecem pendentes e não são implicitamente aprovadas.
+> possui evidências do autor para os gates estático, editorial, lock/SCA,
+> selftest, embedding real e PDF opt-in descritos abaixo. Nesta revisão, os gates
+> locais foram reproduzidos quando possível; a geração com Ollama e a instalação
+> do lock em Windows limpo permanecem pendentes e não são implicitamente aprovadas.
 
 ## Escopo reproduzido
 
@@ -32,12 +33,12 @@ ocorreram somente no container descartável.
 | Índice de URLs | regeneração seguida de `--check` | Exit 0; índice sincronizado. |
 | TCO | `python 99-Templates/check_tco.py` | Exit 0; valores em cache reconciliados e `Checks = PASS`. |
 | Integridade do lock | `sha256sum -c requirements-rag.lock.sha256` | Exit 0, `OK`. |
-| SCA | pip-audit 2.10.1, `--require-hashes --no-deps --disable-pip` | Exit 0; nenhuma vulnerabilidade conhecida encontrada no lock. Consulta OSV independente dos 43 pins também retornou zero findings nesta data. |
+| SCA | `pypa/gh-action-pip-audit` no workflow, com `--require-hashes` e `--no-deps`; resultado histórico do autor | O autor registrou Exit 0 e nenhuma vulnerabilidade conhecida no lock. O resultado não foi reproduzido neste ambiente porque `pip-audit` não estava instalado; o CI remoto do PR ficou bloqueado por aprovação. Consulta OSV independente dos 43 pins também foi registrada pelo autor. |
 | Selftest | `python RAG-local-executavel.py --selftest` | Exit 0; limites, entrada ignorada, symlink/PDF default-deny, cosine, desempate, estado efêmero e citações passaram. |
 | Embedding real | `--retrieve-only --top-k 1 --local-files-only` após cache do snapshot fixado | Exit 0; `backup.md#chunk-0` foi a Fonte 1 correta. O cache continha somente o snapshot `1110a243...`. |
 | PDF opt-in | PDF válido em subprocesso com `--allow-pdf` | Exit 0; retrieval continuou correto e a fonte exposta permaneceu relativa. |
 | Limite PDF | PDF de 2 páginas com `--max-pdf-pages 1` | Exit 2; falha fechada com `PDF excede max_pdf_pages=1`. |
-| Reconciliação requirements/lock | numa cópia descartável, `numpy==2.4.6` foi trocado por `2.4.5` sem regenerar o lock | Exit 1; `RAG_DIRECT_PIN_LOCK_MISMATCH` detectado. |
+| Reconciliação requirements/lock | o workflow copia o vault para diretório temporário, troca `numpy==2.4.6` por `2.4.5` sem regenerar o lock e exige `RAG_DIRECT_PIN_LOCK_MISMATCH` | Teste negativo automatizado adicionado nesta revisão; deve falhar fechado quando o CI executar o workflow no SHA atualizado. A evidência anterior do autor registrou Exit 1. |
 
 ## O que permanece pendente
 
@@ -54,7 +55,12 @@ ocorreram somente no container descartável.
   openpyxl e NumPy ainda não têm um lock próprio de ferramentas.
 
 Esses itens continuam gates independentes. O resultado acima não reaproveita a
-reprodução histórica do pipeline Chroma como prova do patch atual.
+reprodução histórica do pipeline Chroma como prova do patch atual. O checksum
+`43a5d853...` da nota `RAG-reproducao-2026-09-01.md` pertence ao lock histórico;
+o lock atual deste patch é o arquivo `requirements-rag.lock.txt` com SHA-256
+`f5256db8...`. A remoção de `requests` refere-se às dependências diretas e ao
+caminho de execução do protótipo; uma dependência transitiva ainda pode aparecer
+no lock.
 
 *Última atualização: 2026-09-01. Próxima revisão: após o smoke Windows/Ollama.*
 

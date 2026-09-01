@@ -31,6 +31,7 @@ Os valores Q4 incluem uma faixa para escalas, metadados, alinhamento e variaçõ
 | 2×24 GB VRAM + 96–128 GB RAM | Excelente | Excelente | Excelente | Roda Q4 com divisão entre GPUs e/ou RAM |
 | 48–64 GB VRAM + 128 GB RAM | Excelente | Excelente | Excelente | Configuração indicada para 70B Q4 |
 | 80 GB VRAM + 128–256 GB RAM | Excelente | Excelente | Excelente | Muito boa para 70B Q4/Q5 e contexto maior |
+| NVIDIA GB10 / DGX Spark, 128 GB unificados a 273 GB/s | Excelente | Excelente | Excelente | Roda Q4 inteiro, mas o decode é limitado pela banda (teto de ~6–7 tok/s); o ponto forte é MoE de 80–125B com poucos ativos — ver [[03-Hardware/Comparativo-workstations-vs-GPU]] |
 | Apple Silicon 64 GB unificados | Excelente | Excelente | Boa | Q4 pode rodar, mas a banda e o contexto definem a experiência |
 | Apple Silicon 128 GB unificados | Excelente | Excelente | Excelente | Boa opção silenciosa para 70B Q4, respeitando banda e temperatura |
 

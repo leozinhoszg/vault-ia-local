@@ -36,6 +36,17 @@ jobs:
           inputs: 07-Implementacao-Casa/requirements-rag.lock.txt
           require-hashes: true
           no-deps: true
+      - name: Teste negativo de reconciliação requirements/lock
+        run: |
+          tmp_dir="$(mktemp -d)"
+          cp -a . "$tmp_dir/vault"
+          sed -i 's/^numpy==2\.4\.6$/numpy==2.4.5/' "$tmp_dir/vault/07-Implementacao-Casa/requirements-rag.txt"
+          if (cd "$tmp_dir/vault" && python 99-Templates/validate_vault_completo.py --strict) > "$tmp_dir/output.txt" 2>&1; then
+            echo "o validador aceitou uma divergência deliberada" >&2
+            cat "$tmp_dir/output.txt"
+            exit 1
+          fi
+          grep -q 'RAG_DIRECT_PIN_LOCK_MISMATCH' "$tmp_dir/vault/VALIDACAO-COMPLETA.md"
       - name: Planilha TCO reconciliada com modelo independente (exige valores em cache)
         run: python 99-Templates/check_tco.py
       - name: Selftest isolado dos guardrails do RAG (NumPy; sem Ollama, parser PDF ou downloads de modelo)
@@ -47,6 +58,10 @@ jobs:
           grep -q -- '--max-entries' RAG-CLI.txt
           grep -q -- '--allow-remote-ollama' RAG-CLI.txt
           .venv/bin/python 07-Implementacao-Casa/RAG-local-executavel.py --selftest
+      - name: Schema de resultados de benchmark
+        run: python 99-Templates/validate_benchmarks.py
+      - name: Compilação dos harnesses Python
+        run: python -m py_compile 99-Templates/run_benchmark.py 99-Templates/validate_benchmarks.py
       - name: Relatórios como artefato
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

@@ -12,7 +12,7 @@ O gate do vault roda localmente com `python 99-Templates/validate_vault_completo
 
 ## Como usar
 
-Comece em [[00-Inicio/MAPA]] e siga o roteiro adequado. Use a nota [[03-Hardware/Calculadora-de-memoria]] antes de escolher um modelo. Para uma primeira instalação, consulte [[07-Implementacao-Casa/01-LLM-local-com-Ollama]]; para uma API multiusuário, consulte [[08-Implementacao-Empresa/01-Arquitetura-de-referencia]] e [[08-Implementacao-Empresa/02-Deploy-com-vLLM]].
+Nunca usou IA local? Comece em [[01-Fundamentos/00-Comece-aqui]] e no [[01-Fundamentos/Glossario-essencial]]. Caso contrário, comece em [[00-Inicio/MAPA]] e siga o roteiro adequado. Use a nota [[03-Hardware/Calculadora-de-memoria]] antes de escolher um modelo. Para uma primeira instalação, consulte [[07-Implementacao-Casa/01-LLM-local-com-Ollama]]; para uma API multiusuário, consulte [[08-Implementacao-Empresa/01-Arquitetura-de-referencia]] e [[08-Implementacao-Empresa/02-Deploy-com-vLLM]].
 
 Cada nota possui links internos com o caminho da pasta e da nota, referências externas numeradas e uma seção **Referências**. Os valores aproximados são separados dos fatos publicados. A licença de cada modelo deve ser checada antes de uso comercial.
 
@@ -20,7 +20,9 @@ Cada nota possui links internos com o caminho da pasta e da nota, referências e
 
 | Objetivo | Notas principais |
 |---|---|
-| Escolher hardware | [[03-Hardware/Matriz-de-hardware]], [[03-Hardware/GPU-vs-CPU-vs-NPU]], [[03-Hardware/ARM-e-memoria-unificada]] |
+| Entender o básico (parâmetro, token, entrada/saída, carga) | [[01-Fundamentos/00-Comece-aqui]], [[01-Fundamentos/Parametros-e-tokens]], [[01-Fundamentos/Entrada-e-saida]], [[01-Fundamentos/Carregar-um-peso]] |
+| Escolher hardware | [[03-Hardware/Por-que-VRAM-RAM-e-CPU-importam]], [[03-Hardware/Matriz-de-hardware]], [[03-Hardware/GPU-vs-CPU-vs-NPU]], [[03-Hardware/ARM-e-memoria-unificada]] |
+| Comparar workstation vs PC com GPU | [[03-Hardware/Comparativo-workstations-vs-GPU]], [[03-Hardware/Workstations/Dell-Pro-Max-GB10]], [[03-Hardware/Sizing-9B-14B-27B-70B]] |
 | Entender memória | [[05-Memoria-e-Performance/Modelo-de-memoria]], [[03-Hardware/Calculadora-de-memoria]] |
 | Rodar um modelo | [[07-Implementacao-Casa/01-LLM-local-com-Ollama]], [[04-Software/Runtimes]] |
 | Criar busca sobre documentos | [[07-Implementacao-Casa/02-RAG-local]] |
