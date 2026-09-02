@@ -28,6 +28,35 @@ A escolha deve cruzar cinco variáveis: tamanho e arquitetura do modelo, quantiz
 
 O termo “vídeo” precisa ser separado. LM Studio é principalmente um catálogo de LLM/VLM; geração de vídeo normalmente usa ComfyUI e modelos de difusão, como Wan2.1, não um modelo GGUF de chat. Para compreensão de vídeo, extrair frames, áudio e metadados e enviar lotes ao VLM costuma ser mais controlável que tentar manter um vídeo inteiro no contexto [9].
 
+### 2.1 Modelos baixáveis recomendados para coding
+
+A seleção abaixo é a destilação operacional do catálogo para desenvolvimento de software. “Recomendado” significa um bom ponto de partida para avaliação; não é uma garantia de qualidade, licença, velocidade ou disponibilidade permanente. Antes de baixar, conferir o model card, a revisão do repositório, a licença e se o arquivo é realmente baixável, em vez de estar disponível apenas no Cloud [1][3].
+
+| Modelo/família | Melhor uso | Faixa de máquina | Ferramenta preferencial | Observação de validação |
+|---|---|---|---|---|
+| **Qwen3.5 9B** | Explicar código, escrever testes, scripts e correções pequenas | 16–32 GB de RAM; GPU de 8–16 GB | LM Studio, Ollama ou llama.cpp | Primeiro candidato para notebooks e mini-PCs |
+| **Qwen3-Coder 14B/27B** | Coding assistido com contexto maior | 24–32 GB de VRAM ou 64 GB unificados | LM Studio/llama.cpp; vLLM em serviço | Usar Q4 como ponto inicial; medir contexto e KV cache |
+| **Qwen3-Coder 30B** | Melhor equilíbrio local para geração, revisão e testes | RTX 4090/5090; Mac Studio 64–128 GB; GB10 | llama.cpp, LM Studio, vLLM ou TensorRT-LLM conforme backend | Candidato principal para coding geral |
+| **GLM-4.7 30B** | Coding, raciocínio e tool calling | RTX 4090/5090; Mac Studio 64–128 GB | Backend compatível com o formato publicado | Comparar com Qwen3-Coder no dataset da equipe |
+| **Devstral** | Agentes que editam arquivos e executam ferramentas | RTX 5090; Mac Studio/GB10 com memória alta | Runtime compatível e sandbox de ferramentas | Restringir comandos, diretórios e segredos |
+| **Qwen3-Coder-Next 80B MoE/3B ativos** | Coding agentic com muitos pesos e poucos parâmetros ativos | GB10 128 GB; Mac Studio 128 GB; multi-GPU | llama.cpp/LM Studio se o formato for suportado; serving NVIDIA quando validado | Parâmetros ativos não reduzem o armazenamento dos pesos |
+| **Devstral 2 123B** | Agentes avançados e repositórios grandes | Memória alta ou multi-GPU | Serving especializado | Só promover após benchmark e teste de ferramentas |
+| **Laguna S 2.1 118B/8B ativos** | Coding e agentes MoE de grande porte | GB10, Mac Studio Ultra ou servidor de memória alta | Backend explicitamente compatível | Tratar como candidato experimental até medir |
+| **Granite 4.1** | Coding empresarial, RAG e uso controlado | 16–32 GB nas variantes pequenas; mais nas grandes | Ollama, LM Studio ou Hugging Face conforme publicação | Avaliar licença e desempenho em código interno |
+
+Para uma decisão rápida, usar **Qwen3.5 9B** em máquinas modestas, **Qwen3-Coder 30B** em uma RTX 4090/5090 ou Mac Studio, e **Qwen3-Coder-Next/Devstral** somente quando o fluxo realmente exigir agentes, contexto maior ou memória unificada. Um modelo grande não compensa automaticamente uma ferramenta sem sandbox, sem testes e sem revisão humana.
+
+| Cenário | Sequência recomendada |
+|---|---|
+| Coding pessoal leve | Qwen3.5 9B → Qwen3-Coder 14B/27B |
+| Coding profissional em GPU | Qwen3-Coder 30B → GLM-4.7 30B |
+| Coding agentic local | Qwen3-Coder-Next → Devstral, com sandbox |
+| Empresa com repositório privado | Qwen3-Coder 30B ou Granite 4.1 → avaliação dourada → allowlist |
+| Mac mini | Qwen3.5 9B e variantes menores; subir apenas após medir memória |
+| Mac Studio/GB10 | Qwen3-Coder 30B; depois MoE grande conforme backend |
+
+O fluxo recomendado para download é: localizar o repositório oficial; aceitar e registrar a licença; fixar commit ou digest; verificar hash; registrar formato, tokenizer e template; testar o carregamento; medir tokens/s e latência P50/P95; executar um conjunto dourado de tarefas; e só então promover o modelo. No Ollama, fixar a tag e o `Modelfile`; no LM Studio, registrar o arquivo selecionado e a configuração de contexto; no Hugging Face, registrar snapshot/commit e arquivo de quantização [2][3][4].
+
 ## 3. Faixas de memória e modelos
 
 | Memória disponível | Modelos locais razoáveis | Observação |
