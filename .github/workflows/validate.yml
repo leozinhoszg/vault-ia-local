@@ -31,10 +31,14 @@ jobs:
       - name: Lockfile existe e não mudou silenciosamente
         run: cd 07-Implementacao-Casa && sha256sum -c requirements-rag.lock.sha256
       - name: SCA do lockfile RAG (falha em vulnerabilidade conhecida)
+        # no-deps sem require-hashes: o lock é gerado no Windows e não contém as
+        # dependências com marker de Linux do torch (cuda-toolkit, nvidia-*-cu13),
+        # então o modo require-hashes faz o pip interno falhar no runner Ubuntu.
+        # A integridade do lock já é garantida pelo passo sha256sum -c acima;
+        # aqui só interessa a consulta de vulnerabilidades dos pins declarados.
         uses: pypa/gh-action-pip-audit@1220774d901786e6f652ae159f7b6bc8fea6d266 # v1.1.0
         with:
           inputs: 07-Implementacao-Casa/requirements-rag.lock.txt
-          require-hashes: true
           no-deps: true
       - name: Teste negativo de reconciliação requirements/lock
         run: |
