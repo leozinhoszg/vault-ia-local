@@ -80,6 +80,7 @@ O resultado deve ser anexado à [[02-Modelos/Ficha-padronizada-por-modelo]] e à
 [6]: https://github.com/ggerganov/llama.cpp "llama.cpp — llama-bench e backends"
 [7]: https://docs.vllm.ai/ "vLLM — serving e benchmarks"
 [8]: https://mlcommons.org/benchmarks/client/ "MLPerf Client — benchmark para PCs"
+[9]: https://www.nvidia.com/en-us/products/workstations/professional-laptops/compare/ "NVIDIA RTX PRO Laptop GPUs — comparativo oficial"
 
 ## Plataformas AMD e Apple Silicon adicionadas ao comparativo
 
@@ -97,3 +98,24 @@ A planilha contém uma aba `Metricas` com as plataformas abaixo. Elas entram com
 | Apple M4 Ultra | Não confirmado | Não confirmado | Não confirmado | Não usar em sizing | Nenhuma ficha oficial encontrada |
 
 Consulte [[03-Hardware/AMD-e-Apple-Silicon-para-IA-local]] para a análise de software, compatibilidade e critérios de escolha. Consulte [[03-Hardware/Referencias-de-desempenho-GPU]] para a metodologia de tokens/s, TTFT, P50/P95 e tokens/s por watt.
+
+## GPUs de notebook — linha RTX PRO Blackwell
+
+**Data de verificação:** 2 de setembro de 2026, no comparativo oficial da NVIDIA [9]. A linha profissional móvel Blackwell tem seis SKUs. Elas usam GDDR7 e Tensor Cores de 5ª geração (FP4 nativo), mas as regras de leitura são diferentes das placas desktop:
+
+1. **TGP é faixa configurável pelo OEM, não valor fixo.** Duas máquinas com a mesma GPU podem ter tetos de potência muito diferentes; o desempenho sustentado depende do chassi e da refrigeração. Registre o TGP configurado ao fazer benchmark.
+2. **O nome não equivale ao desktop.** A banda das SKUs móveis é bem menor que a de desktops de faixa de preço parecida; em decode memory-bound, isso limita tokens/s antes de qualquer outra coisa.
+3. **ECC existe só nas SKUs de 12 GB ou mais** (3000, 4000 e 5000).
+
+| GPU | VRAM | Banda | TGP (W) | CUDA cores | AI TOPS | Modelos viáveis em Q4 |
+|---|---:|---:|---:|---:|---:|---|
+| RTX PRO 500 Blackwell | 6 GB GDDR7 | 288 GB/s | 35–75 | 1792 | 294 | 4B confortável; 8B Q4 com contexto curto e margem mínima |
+| RTX PRO 1000 Blackwell | 8 GB GDDR7 | 384 GB/s | 35–115 | 2560 | 440 | 8B Q4/Q5 com contexto moderado; 14B apenas muito ajustado |
+| RTX PRO 2000 Blackwell | 8 GB GDDR7 | 384 GB/s | 45–115 | 3328 | 572 | 8B Q4/Q5; mesma restrição de VRAM da PRO 1000, mais computação |
+| RTX PRO 3000 Blackwell | 12 GB GDDR7 ECC | 672 GB/s | 60–140 | 5888 | 992 | 8B Q4/Q5; 14B Q4 com contexto moderado |
+| RTX PRO 4000 Blackwell | 16 GB GDDR7 ECC | 896 GB/s | 80–175 | 7680 | 1334 | 8B/14B; 27B Q4 apertado com contexto curto |
+| RTX PRO 5000 Blackwell | 24 GB GDDR7 ECC | 896 GB/s | 95–175 | 10496 | 1824 | 8B/14B; 27B/30B Q4 com contexto dimensionado |
+
+O sizing por VRAM segue a tabela [Memória necessária por modelo](#memória-necessária-por-modelo) desta nota: os pisos Q4 de 8B (~4 GB), 14B (~7 GB) e 27B (~13,5 GB) valem igualmente aqui, mas em notebook a margem para KV cache, sistema e vídeo integrado costuma ser menor, e o decode sustentado cai quando o TGP configurado é baixo ou o chassi atinge limite térmico. Aplique o mesmo [protocolo de benchmark reproduzível](#protocolo-de-benchmark-reproduzível), registrando também o TGP configurado e o modo de energia do notebook.
+
+Referência prática do vault: a RTX 4060 Laptop 8 GB rodou `qwen3.5:4b` (Q4_K_M, 3,4 GB) com folga ([[07-Implementacao-Casa/Evidencias/RAG-reproducao-2026-09-01]]); as PRO 1000/2000 têm a mesma classe de VRAM com banda maior.

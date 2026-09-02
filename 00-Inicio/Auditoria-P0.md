@@ -32,7 +32,7 @@ As fórmulas foram lidas com `openpyxl`, todas as referências de célula foram 
 - Bloco de vida útil da `Sensibilidade` usa amortização linear mesmo com `Método de CAPEX = 1`; o fator Batch é aplicado a 100% do custo.
 - Preços da API são premissas datadas e devem ser reconsultados na data da decisão.
 - O job de release só roda em tags `v*`; nenhuma release foi publicada ainda.
-- O lockfile RAG é mono-plataforma (gerado no Windows): não contém as dependências com marker `platform_system == "Linux"` do torch 2.13.0 (`cuda-toolkit==13.0.3`, `nvidia-*-cu13`). Por isso o SCA do CI roda com `no-deps` sem `require-hashes` desde 2026-09-02; a solução definitiva é gerar lock multi-plataforma (ex.: `pip-compile` com hashes por ambiente) ou um lock por SO.
+- O lockfile RAG é mono-plataforma (gerado no Windows): não contém as dependências com marker `platform_system == "Linux"` do torch 2.13.0 (`cuda-toolkit==13.0.3`, `nvidia-*-cu13`). Por isso o SCA do CI audita, desde 2026-09-02, uma cópia do lock apenas com `nome==versão` (`no-deps`, sem hashes — linhas `--hash` ligariam o modo hash do pip interno); a solução definitiva é gerar lock multi-plataforma (ex.: `pip-compile` com hashes por ambiente) ou um lock por SO.
 
 ## Fora do alcance desta auditoria (exigem hardware ou ambiente real)
 

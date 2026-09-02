@@ -2,7 +2,7 @@
 
 <!-- validador: sem-referencias: nota gerada automaticamente por 99-Templates/gerar_indice_urls.py; as fontes são o próprio conteúdo -->
 
-Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 179, sendo 172 fontes externas e 7 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
+Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 180, sendo 173 fontes externas e 7 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
 
 | URL | Arquivos de origem |
 |---|---|
@@ -163,6 +163,7 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/ | 03-Hardware/Builds-brasileiros-por-orcamento.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/ | 03-Hardware/Builds-brasileiros-por-orcamento.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/en-us/products/workstations/dgx-spark/ | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md, 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
+| https://www.nvidia.com/en-us/products/workstations/professional-laptops/compare/ | 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/en-us/products/workstations/rtx-5000/ | 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/en-us/products/workstations/rtx-6000/ | 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/pt-br/geforce/graphics-cards/40-series/rtx-4090/ | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md |

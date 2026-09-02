@@ -30,15 +30,21 @@ jobs:
         run: python 99-Templates/gerar_indice_urls.py --check
       - name: Lockfile existe e não mudou silenciosamente
         run: cd 07-Implementacao-Casa && sha256sum -c requirements-rag.lock.sha256
+      - name: Preparar pins para o SCA (cópia sem hashes)
+        # O lock é gerado no Windows e não contém as dependências com marker de
+        # Linux do torch (cuda-toolkit, nvidia-*-cu13). Qualquer linha --hash
+        # liga o modo hash do pip interno do pip-audit, que então exige hash
+        # dessas dependências ausentes e falha no runner Ubuntu. Auditamos uma
+        # cópia só com nome==versão; a integridade do lock continua garantida
+        # pelo passo sha256sum -c acima.
+        run: |
+          sed -E 's/[[:space:]]*\\$//' 07-Implementacao-Casa/requirements-rag.lock.txt \
+            | grep -E '^[A-Za-z0-9_.-]+==' > "$RUNNER_TEMP/rag-pins.txt"
+          wc -l "$RUNNER_TEMP/rag-pins.txt"
       - name: SCA do lockfile RAG (falha em vulnerabilidade conhecida)
-        # no-deps sem require-hashes: o lock é gerado no Windows e não contém as
-        # dependências com marker de Linux do torch (cuda-toolkit, nvidia-*-cu13),
-        # então o modo require-hashes faz o pip interno falhar no runner Ubuntu.
-        # A integridade do lock já é garantida pelo passo sha256sum -c acima;
-        # aqui só interessa a consulta de vulnerabilidades dos pins declarados.
         uses: pypa/gh-action-pip-audit@1220774d901786e6f652ae159f7b6bc8fea6d266 # v1.1.0
         with:
-          inputs: 07-Implementacao-Casa/requirements-rag.lock.txt
+          inputs: ${{ runner.temp }}/rag-pins.txt
           no-deps: true
       - name: Teste negativo de reconciliação requirements/lock
         run: |
