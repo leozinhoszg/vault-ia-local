@@ -2,7 +2,7 @@
 
 <!-- validador: sem-referencias: nota gerada automaticamente por 99-Templates/gerar_indice_urls.py; as fontes são o próprio conteúdo -->
 
-Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 142, sendo 138 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
+Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 145, sendo 141 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
 
 | URL | Arquivos de origem |
 |---|---|
@@ -33,6 +33,7 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://docs.sglang.ai/ | 05-Memoria-e-Performance/Inferencia-livro.md |
 | https://docs.vllm.ai/ | 00-Inicio/Livro-IA-Local.md, 02-Modelos/LLMs-locais-para-coding-Atomic.md, 03-Hardware/Calculadora-de-memoria.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md, 03-Hardware/Referencias-de-desempenho-GPU.md, 03-Hardware/Sizing-9B-14B-27B-70B.md, 04-Software/Runtimes.md, 05-Memoria-e-Performance/Benchmarks/README.md, 05-Memoria-e-Performance/Evaliacao-e-regressao-de-modelos.md, 05-Memoria-e-Performance/Inferencia-livro.md, 05-Memoria-e-Performance/KV-cache-formula-e-exemplos.md, 08-Implementacao-Empresa/02-Deploy-com-vLLM.md, 11-Referencias/Fontes-principais.md |
 | https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html | 08-Implementacao-Empresa/03-Paralelismo-e-multi-GPU.md |
+| https://docs.vllm.ai/en/stable/getting_started/installation/gpu/ | 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
 | https://github.com/Noobru/vault-ia-local/commit/ffec088e2c2af03ff85d318673b6bcc7ab555539 | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
 | https://github.com/advisories/GHSA-36p7-vc44-83pf | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/RAG-livro.md |
 | https://github.com/advisories/GHSA-5xf7-4p34-54qr | 07-Implementacao-Casa/03-RAG-deploy.md |
@@ -55,6 +56,7 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://github.com/pypa/pip-audit | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
 | https://github.com/turboderp-org/exllamav2 | 05-Memoria-e-Performance/Quantizacao-livro.md, 05-Memoria-e-Performance/Quantizacoes-praticas.md |
 | https://github.com/unslothai/unsloth | 06-Treinamento-e-Fine-tuning/01-QLoRA-pratico.md, 06-Treinamento-e-Fine-tuning/02-Fine-tuning-completo.md |
+| https://github.com/vllm-project/vllm/issues/31128 | 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
 | https://hub.docker.com/_/python | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
 | https://huggingface.co/Qwen/Qwen3-Coder-30B-A3B-Instruct | 02-Modelos/Fichas/Qwen3-Coder-30B.md, 11-Referencias/Fontes-principais.md |
 | https://huggingface.co/Qwen/Qwen3-Coder-Next | 02-Modelos/Catalogo-de-modelos.md, 02-Modelos/LLMs-locais-para-coding-Atomic.md, 02-Modelos/Tabela-normalizada-de-benchmarks.md, 11-Referencias/Fontes-principais.md |
@@ -84,6 +86,7 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://modelcontextprotocol.io/ | 07-Implementacao-Casa/Agentes-e-tool-calling.md |
 | https://networking-docs.nvidia.com/mlnxofedswum/24101140lts/user-manual | 08-Implementacao-Empresa/03-Paralelismo-e-multi-GPU.md |
 | https://news.ycombinator.com/item?id=43317406 | 03-Hardware/Referencias-de-desempenho-GPU.md |
+| https://nvidia.github.io/TensorRT-LLM/release-notes.html | 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
 | https://ollama.com/cloud | 02-Modelos/Local-real-vs-cloud.md |
 | https://ollama.com/library/kimi-k2.6 | 02-Modelos/Fichas/Kimi-K2.6.md, 02-Modelos/Local-real-vs-cloud.md, 02-Modelos/Verificacao-PromptQuorum.md |
 | https://ollama.com/library/kimi-k2.7-code | 02-Modelos/Catalogo-de-modelos.md, 02-Modelos/Fichas/Kimi-K2.7-Code.md, 02-Modelos/Verificacao-PromptQuorum.md |
