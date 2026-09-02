@@ -2,7 +2,7 @@
 
 <!-- validador: sem-referencias: nota gerada automaticamente por 99-Templates/gerar_indice_urls.py; as fontes são o próprio conteúdo -->
 
-Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 145, sendo 141 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
+Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 153, sendo 149 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
 
 | URL | Arquivos de origem |
 |---|---|
@@ -127,11 +127,12 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://www.cloudrift.ai/blog | 03-Hardware/Referencias-de-desempenho-GPU.md |
 | https://www.corsair.com/ | 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.dell.com/pt-br/lp/dell-pro-max-nvidia-ai-dev-premier | 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
-| https://www.dell.com/pt-br/shop/cty/pdp/spd/dell-pro-max-fcm1253-micro | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
+| https://www.dell.com/pt-br/shop/cty/pdp/spd/dell-pro-max-fcm1253-micro | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Workstations/Dell-Pro-Max-GB10.md, 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
 | https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html | 07-Implementacao-Casa/Embeddings-e-vector-search.md |
 | https://www.fractal-design.com/ | 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd | 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md |
 | https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html | 04-Software/Compatibilidade-por-stack.md |
+| https://www.kabum.com.br/busca/RTX-5090 | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
 | https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory | 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.mlperf.org/ | 05-Memoria-e-Performance/Benchmarks/README.md |
 | https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence | 00-Inicio/Livro-IA-Local.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md, 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 10-Operacao-e-Seguranca/NIST-AI-RMF-GenAI.md |
@@ -144,9 +145,16 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://www.nvidia.com/pt-br/geforce/graphics-cards/40-series/rtx-4090/ | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md |
 | https://www.nvidia.com/pt-br/geforce/graphics-cards/50-series/rtx-5090/ | 03-Hardware/Comparativo-workstations-vs-GPU.md |
 | https://www.nvidia.com/pt-br/products/workstations/dgx-spark/ | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
+| https://www.pichau.com.br/search?q=Core%20Ultra%209%20285K | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
+| https://www.pichau.com.br/search?q=DDR5%20128GB | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
+| https://www.pichau.com.br/search?q=RTX%205090 | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
+| https://www.pichau.com.br/search?q=Ryzen%209%209950X | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
 | https://www.promptquorum.com/pt/local-llms/best-local-llms-for-coding | 02-Modelos/Verificacao-PromptQuorum.md, 11-Referencias/Fontes-principais.md |
 | https://www.techpowerup.com/gpu-specs/ | 03-Hardware/Catalogo-NVIDIA-IA-local.md |
-| https://www.worldwidebrasil.com.br/nvidia-dgx-spark-4tb-ia-supercomputador-pessoal-lacrado | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
+| https://www.terabyteshop.com.br/busca?str=Core%20Ultra%209%20285K | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
+| https://www.terabyteshop.com.br/busca?str=RTX%205090 | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
+| https://www.terabyteshop.com.br/busca?str=Ryzen%209%209950X | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
+| https://www.worldwidebrasil.com.br/nvidia-dgx-spark-4tb-ia-supercomputador-pessoal-lacrado | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Workstations/Dell-Pro-Max-GB10.md, 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
 
 ## Endpoints locais citados em exemplos
 
