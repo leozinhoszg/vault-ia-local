@@ -2,10 +2,11 @@
 
 <!-- validador: sem-referencias: nota gerada automaticamente por 99-Templates/gerar_indice_urls.py; as fontes são o próprio conteúdo -->
 
-Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 168, sendo 164 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
+Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 179, sendo 172 fontes externas e 7 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
 
 | URL | Arquivos de origem |
 |---|---|
+| http://0.0.0.0 | 10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md |
 | http://example.com:11434 | 07-Implementacao-Casa/RAG-local-executavel.py |
 | https://ai.meta.com/blog/llama-4-multimodal-intelligence/ | 01-Fundamentos/Arquiteturas.md, 01-Fundamentos/LLM-e-inferencia.md, 01-Fundamentos/Parametros-e-tokens.md, 02-Modelos/Catalogo-de-modelos.md, 03-Hardware/Sizing-9B-14B-27B-70B.md, 11-Referencias/Fontes-principais.md |
 | https://ai.meta.com/blog/meta-llama-3-1/ | 02-Modelos/Catalogo-de-modelos.md, 11-Referencias/Fontes-principais.md |
@@ -16,8 +17,11 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://arxiv.org/abs/2209.05433 | 05-Memoria-e-Performance/Comparativo-FP8-vs-FP4.md |
 | https://arxiv.org/abs/2305.14314 | 00-Inicio/Livro-IA-Local.md, 06-Treinamento-e-Fine-tuning/01-QLoRA-pratico.md, 06-Treinamento-e-Fine-tuning/02-Fine-tuning-completo.md, 06-Treinamento-e-Fine-tuning/03-Treinamento-e-limites-economicos.md, 06-Treinamento-e-Fine-tuning/Fine-tuning-livro.md, 11-Referencias/Fontes-principais.md |
 | https://arxiv.org/abs/2305.18290 | 06-Treinamento-e-Fine-tuning/03-Treinamento-e-limites-economicos.md, 06-Treinamento-e-Fine-tuning/Fine-tuning-livro.md |
+| https://atlas.mitre.org/ | 10-Operacao-e-Seguranca/Threat-model-LLM-local.md |
 | https://atomic.chat/blog/guides/best-local-llms-for-coding | 02-Modelos/Catalogo-de-modelos.md, 02-Modelos/Fichas/Qwen3-Coder-30B.md, 02-Modelos/LLMs-locais-para-coding-Atomic.md, 03-Hardware/Comparativo-workstations-vs-GPU.md |
 | https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/ | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md |
+| https://csrc.nist.gov/pubs/sp/800/162/upd2/final | 08-Implementacao-Empresa/Matriz-RBAC-e-ABAC.md |
+| https://datatracker.ietf.org/doc/html/rfc7644 | 08-Implementacao-Empresa/Matriz-RBAC-e-ABAC.md |
 | https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/ | 03-Hardware/Matriz-de-hardware.md, 03-Hardware/Sizing-9B-14B-27B-70B.md, 05-Memoria-e-Performance/Comparativo-FP8-vs-FP4.md, 05-Memoria-e-Performance/Quantizacao-e-FP4.md, 05-Memoria-e-Performance/Quantizacao-livro.md, 05-Memoria-e-Performance/Quantizacoes-praticas.md, 11-Referencias/Fontes-principais.md |
 | https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview | 07-Implementacao-Casa/Agentes-e-tool-calling.md |
 | https://docs.cloud.google.com/tpu/docs/intro-to-tpu | 03-Hardware/APU-e-TPU.md |
@@ -29,7 +33,7 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/fp8_primer.html | 05-Memoria-e-Performance/Comparativo-FP8-vs-FP4.md |
 | https://docs.ollama.com/api/generate | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/RAG-livro.md |
 | https://docs.ollama.com/cloud | 02-Modelos/Local-real-vs-cloud.md, 11-Referencias/Fontes-principais.md |
-| https://docs.ollama.com/faq | 01-Fundamentos/00-Comece-aqui.md, 01-Fundamentos/Carregar-um-peso.md, 01-Fundamentos/Entrada-e-saida.md, 01-Fundamentos/Glossario-essencial.md, 02-Modelos/Local-real-vs-cloud.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md, 11-Referencias/Fontes-principais.md |
+| https://docs.ollama.com/faq | 01-Fundamentos/00-Comece-aqui.md, 01-Fundamentos/Carregar-um-peso.md, 01-Fundamentos/Entrada-e-saida.md, 01-Fundamentos/Glossario-essencial.md, 02-Modelos/Local-real-vs-cloud.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md, 10-Operacao-e-Seguranca/Controles/OLL-AUTH-002-Camada-externa-de-autenticacao.md, 10-Operacao-e-Seguranca/Controles/OLL-CLD-003-Modo-somente-local.md, 10-Operacao-e-Seguranca/Controles/OLL-NET-001-Bind-loopback.md, 10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md, 10-Operacao-e-Seguranca/Supply-chain-de-modelos.md, 10-Operacao-e-Seguranca/Threat-model-LLM-local.md, 11-Referencias/Fontes-principais.md |
 | https://docs.ollama.com/gpu | 01-Fundamentos/Carregar-um-peso.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 11-Referencias/Fontes-principais.md |
 | https://docs.ragas.io/ | 05-Memoria-e-Performance/Evaliacao-e-regressao-de-modelos.md |
 | https://docs.sglang.ai/ | 05-Memoria-e-Performance/Inferencia-livro.md |
@@ -37,6 +41,8 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html | 08-Implementacao-Empresa/03-Paralelismo-e-multi-GPU.md |
 | https://docs.vllm.ai/en/stable/ | 02-Modelos/Guia-de-escolha-modelo-por-tarefa-e-maquina.md |
 | https://docs.vllm.ai/en/stable/getting_started/installation/gpu/ | 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
+| https://evil.com?data= | 10-Operacao-e-Seguranca/Threat-model-LLM-local.md |
+| https://exemplo/hub/ | 10-Operacao-e-Seguranca/Supply-chain-de-modelos.md |
 | https://github.com/NVIDIA/TensorRT-LLM | 02-Modelos/Guia-de-escolha-modelo-por-tarefa-e-maquina.md |
 | https://github.com/Noobru/vault-ia-local/commit/ffec088e2c2af03ff85d318673b6bcc7ab555539 | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
 | https://github.com/advisories/GHSA-36p7-vc44-83pf | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/RAG-livro.md |
@@ -106,9 +112,9 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://openai.com/api/pricing/ | 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 09-Servicos-e-Custos/Servicos-comerciais-e-break-even.md |
 | https://openbenchmarking.org/result/2501264-PTS-LLAMACPP76 | 03-Hardware/Referencias-de-desempenho-GPU.md |
 | https://opendata.bcb.gov.br/dataset/exchange-rates-daily-bulletins | 03-Hardware/BOM-brasileira-datada.md, 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 09-Servicos-e-Custos/Servicos-comerciais-e-break-even.md |
-| https://openid.net/specs/openid-connect-core-1_0.html | 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md |
+| https://openid.net/specs/openid-connect-core-1_0.html | 08-Implementacao-Empresa/Matriz-RBAC-e-ABAC.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md |
 | https://osv.dev/ | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
-| https://owasp.org/www-project-top-10-for-large-language-model-applications/ | 07-Implementacao-Casa/AI-assisted-coding-tools.md, 07-Implementacao-Casa/Agentes-e-tool-calling.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md |
+| https://owasp.org/www-project-top-10-for-large-language-model-applications/ | 07-Implementacao-Casa/AI-assisted-coding-tools.md, 07-Implementacao-Casa/Agentes-e-tool-calling.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md, 10-Operacao-e-Seguranca/Supply-chain-de-modelos.md, 10-Operacao-e-Seguranca/Threat-model-LLM-local.md, 99-Templates/Modelo-de-nota-de-controle.md |
 | https://platform.openai.com/docs/guides/function-calling | 07-Implementacao-Casa/Agentes-e-tool-calling.md |
 | https://poolside.ai/blog/introducing-laguna-xs-2-1 | 02-Modelos/Fichas/Laguna-XS-2.1.md |
 | https://pypdf.readthedocs.io/ | 07-Implementacao-Casa/03-RAG-deploy.md |
@@ -124,6 +130,8 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://scikit-learn.org/stable/modules/linear_model.html | 01-Fundamentos/Regressao-ML.md |
 | https://scikit-learn.org/stable/modules/model_evaluation.html | 01-Fundamentos/Regressao-ML.md, 05-Memoria-e-Performance/Evaliacao-e-regressao-de-modelos.md |
 | https://semiconductor.samsung.com/consumer-storage/internal-ssd/990-pro/ | 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
+| https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/ | 10-Operacao-e-Seguranca/Threat-model-LLM-local.md |
+| https://slsa.dev/ | 10-Operacao-e-Seguranca/Supply-chain-de-modelos.md |
 | https://store.minisforum.com/products/minisforum-ai-x1-pro-470-mini-pc | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md |
 | https://www.amd.com/ | 03-Hardware/BOMs/BOM-Mac-Studio-M4-Max.md, 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RTX-5090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.amd.com/en/developer/resources/technical-articles/2025/amd-ryzen-ai-max-395--a-leap-forward-in-generative-ai-performanc.html | 03-Hardware/APU-e-TPU.md |
@@ -145,12 +153,12 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://www.dell.com/pt-br/shop/cty/pdp/spd/dell-pro-max-fcm1253-micro | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Workstations/Dell-Pro-Max-GB10.md, 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
 | https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html | 07-Implementacao-Casa/Embeddings-e-vector-search.md |
 | https://www.fractal-design.com/ | 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
-| https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd | 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md |
+| https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd | 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md, 10-Operacao-e-Seguranca/Esquema-de-auditoria-LLM.md |
 | https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html | 04-Software/Compatibilidade-por-stack.md |
 | https://www.kabum.com.br/busca/RTX-5090 | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
 | https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory | 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.mlperf.org/ | 05-Memoria-e-Performance/Benchmarks/README.md |
-| https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence | 00-Inicio/Livro-IA-Local.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md, 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 10-Operacao-e-Seguranca/NIST-AI-RMF-GenAI.md |
+| https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence | 00-Inicio/Livro-IA-Local.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md, 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 10-Operacao-e-Seguranca/Esquema-de-auditoria-LLM.md, 10-Operacao-e-Seguranca/NIST-AI-RMF-GenAI.md, 10-Operacao-e-Seguranca/Threat-model-LLM-local.md |
 | https://www.nvidia.com/ | 03-Hardware/BOMs/BOM-Mac-Studio-M4-Max.md, 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RTX-5090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/ | 03-Hardware/Builds-brasileiros-por-orcamento.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/ | 03-Hardware/Builds-brasileiros-por-orcamento.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md |
@@ -175,7 +183,10 @@ Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 
 | URL | Arquivos de origem |
 |---|---|
-| http://127.0.0.1:11434 | 07-Implementacao-Casa/RAG-local-executavel.py |
+| http://127.0.0.1:11434 | 07-Implementacao-Casa/RAG-local-executavel.py, 10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md |
+| http://127.0.0.1:11434/api/tags | 10-Operacao-e-Seguranca/Controles/OLL-AUTH-002-Camada-externa-de-autenticacao.md, 10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md |
+| http://127.0.0.1:11434/api/version | 10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md |
+| http://localhost | 10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md |
 | http://localhost:11434 | 07-Implementacao-Casa/RAG-local-executavel.py |
 | http://localhost:11434/api/generate | 07-Implementacao-Casa/01-LLM-local-com-Ollama.md |
 | http://localhost:8000/metrics | 05-Memoria-e-Performance/Benchmarking.md |

@@ -1,8 +1,9 @@
 # Validação automatizada do vault
 
-- Markdown no pacote: 103
-- Markdown analisados: 101 (excluídos os relatórios VALIDACAO-COMPLETA.md, VALIDACAO.md)
-- Arquivos na triagem textual heurística: 115 (.cfg, .ini, .json, .key, .md, .pem, .properties, .ps1, .py, .sh, .toml, .txt, .yaml, .yml; nomes especiais: .env*)
+- Markdown no pacote: 112
+- Markdown analisados: 110 (excluídos os relatórios VALIDACAO-COMPLETA.md, VALIDACAO.md)
+- Arquivos na triagem textual heurística: 124 (.cfg, .ini, .json, .key, .md, .pem, .properties, .ps1, .py, .sh, .toml, .txt, .yaml, .yml; nomes especiais: .env*)
+- Notas de controle (frontmatter control_id): 3
 - Limite da triagem: regexes indicam padrões suspeitos; não substituem secret scanning dedicado, histórico Git ou revisão humana.
 - Erros: 0
 - Avisos: 0

@@ -92,9 +92,19 @@ Práticas confirmadas nas notas do cofre de coding deste host (261 — AuthN e A
 - [ ] Trilha de auditoria com correlation ID chegando ao SIEM; retenção definida.
 - [ ] Runbook de incidente e rollback testados ([[10-Operacao-e-Seguranca/Runbook]]).
 
+## Controles verificáveis
+
+As recomendações desta nota estão sendo promovidas a notas de controle (schema em [[99-Templates/Modelo-de-nota-de-controle]], riscos em [[10-Operacao-e-Seguranca/Threat-model-LLM-local]]). Já testados nesta máquina em 2026-09-01 (evidência: [[10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01]]):
+
+- [[10-Operacao-e-Seguranca/Controles/OLL-NET-001-Bind-loopback]] — PASS: só `127.0.0.1:11434` escutando.
+- [[10-Operacao-e-Seguranca/Controles/OLL-AUTH-002-Camada-externa-de-autenticacao]] — confirmado que header `Authorization` é ignorado pelo runtime (200 com token inválido).
+- [[10-Operacao-e-Seguranca/Controles/OLL-CLD-003-Modo-somente-local]] — **FAIL nesta máquina**: `Ollama cloud disabled: false`; divergência aberta, correção é decisão do dono editorial.
+
+Os controles de LM Studio seguem sem teste (não instalado neste host).
+
 ## O que esta nota não afirma
 
-- Nenhuma configuração foi testada nesta máquina ou em ambiente corporativo; tudo acima é especificação de fabricante capturada em 2026-09-01 mais destilação editorial de práticas de segurança.
+- As configurações de LM Studio não foram testadas nesta máquina ou em ambiente corporativo (especificação de fabricante capturada em 2026-09-01); do Ollama, apenas os três controles listados acima têm teste próprio — o restante segue como spec mais destilação editorial.
 - Os escopos exatos de permissão por token do LM Studio não estão enumerados na doc pública; conferir na UI da versão instalada antes de prometer "token somente de inferência".
 - "API keys do Ollama Cloud não protegem a API local" é inferência por ausência na doc, não afirmação testada; um smoke test local pode fechá-la.
 - Defaults e nomes de settings mudam entre versões; revisar mensalmente junto com o ciclo de modelos/runtimes do [[AGENTS]].

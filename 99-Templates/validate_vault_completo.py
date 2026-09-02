@@ -1,3 +1,4 @@
+from datetime import date
 from pathlib import Path
 import ast
 import json
@@ -21,8 +22,19 @@ all_md=[p for p in ROOT.rglob('*.md') if not ignored(p)]
 md=[p for p in all_md if p.name not in EXCLUDED_REPORTS]
 text_files=[p for p in ROOT.rglob('*') if p.is_file() and not ignored(p)
             and (p.suffix.lower() in TEXT_EXTENSIONS or p.name.lower().startswith(SPECIAL_TEXT_PREFIXES))]
-JUST=re.compile(r'<!--\s*validador:\s*(sem-referencias|sem-data)\s*:\s*(.+?)\s*-->')
+JUST=re.compile(r'<!--\s*validador:\s*(sem-referencias|sem-data|revisao-vencida)\s*:\s*(.+?)\s*-->')
 NO_FORMULAS_JUST=re.compile(r'<!--\s*validador:\s*sem-formulas\s*:\s*(.+?)\s*-->')
+
+# Nota de controle: frontmatter YAML com control_id ativa o schema de controle
+# (cadeia risco → requisito → configuração → teste → evidência → operação →
+# revisão). Campos e seções exigidos estão em
+# 99-Templates/Modelo-de-nota-de-controle.md.
+FRONTMATTER=re.compile(r'\A---\s*\n(.*?)\n---\s*\n',re.S)
+ISO_DATE=re.compile(r'\d{4}-\d{2}-\d{2}')
+CONTROL_STATUSES={'documented','configured','tested','verified'}
+CONTROL_EVIDENCE={'manufacturer-specification','own-test','inference','estimate','editorial','compensating-control'}
+CONTROL_SECTIONS=('## Risco','## Configuração','## Teste positivo','## Teste negativo','## Evidência','## Rollback')
+control_notes=0
 
 for p in md:
     text=p.read_text(encoding='utf-8', errors='replace')
@@ -54,6 +66,43 @@ for p in md:
     if len(text.splitlines()) >= 25 and not re.search(r'20\d{2}|Última atualização|Data|Status', text, re.I):
         if 'sem-data' in just: justified.append(f'NO_DATE_OR_STATUS {rel(p)} — {just["sem-data"]}')
         else: warnings.append(f'NO_DATE_OR_STATUS {rel(p)}')
+    # Schema de nota de controle. status tested/verified exige teste próprio;
+    # revisão vencida vira aviso (justificável com revisao-vencida) para o
+    # gate estrito cobrar a re-verificação sem quebrar builds históricos.
+    fm=FRONTMATTER.match(text)
+    if fm and re.search(r'^control_id\s*:',fm.group(1),re.M):
+        control_notes+=1
+        front=fm.group(1)
+        def field(name,front=front):
+            # [ \t] e não \s: \s casaria o \n de um valor vazio e capturaria a linha seguinte.
+            m=re.search(rf'^{name}[ \t]*:[ \t]*(.+?)[ \t]*$',front,re.M)
+            return m.group(1).strip().strip('"\'') if m else None
+        cid=field('control_id')
+        if not cid or not re.fullmatch(r'[A-Z0-9]+(?:-[A-Z0-9]+){1,4}',cid):
+            errors.append(f'CONTROL_BAD_ID {rel(p)}:{cid}')
+        status=field('status')
+        if status not in CONTROL_STATUSES:
+            errors.append(f'CONTROL_BAD_STATUS {rel(p)}:{status}')
+        evidence=field('evidence_type')
+        if evidence not in CONTROL_EVIDENCE:
+            errors.append(f'CONTROL_BAD_EVIDENCE_TYPE {rel(p)}:{evidence}')
+        if status in {'tested','verified'} and evidence!='own-test':
+            errors.append(f'CONTROL_STATUS_EVIDENCE_MISMATCH {rel(p)}: status={status} exige evidence_type=own-test')
+        for date_field in ('verified_on','review_due'):
+            value=field(date_field)
+            if not value or not ISO_DATE.fullmatch(value):
+                errors.append(f'CONTROL_BAD_DATE {rel(p)}:{date_field}={value}')
+        due=field('review_due')
+        if due and ISO_DATE.fullmatch(due) and due < date.today().isoformat():
+            if 'revisao-vencida' in just:
+                justified.append(f'CONTROL_REVIEW_OVERDUE {rel(p)}:{due} — {just["revisao-vencida"]}')
+            else:
+                warnings.append(f'CONTROL_REVIEW_OVERDUE {rel(p)}:{due}')
+        if not field('risk'):
+            errors.append(f'CONTROL_MISSING_RISK {rel(p)}')
+        for section in CONTROL_SECTIONS:
+            if section not in text:
+                errors.append(f'CONTROL_MISSING_SECTION {rel(p)}:{section}')
 
 # Python syntax.
 for p in ROOT.rglob('*.py'):
@@ -213,13 +262,14 @@ lines=['# Validação automatizada do vault','',
        f'- Markdown no pacote: {len(all_md)}',
        f'- Markdown analisados: {len(md)} (excluídos os relatórios {", ".join(sorted(EXCLUDED_REPORTS))})',
        f'- Arquivos na triagem textual heurística: {len(text_files)} ({", ".join(sorted(TEXT_EXTENSIONS))}; nomes especiais: .env*)',
+       f'- Notas de controle (frontmatter control_id): {control_notes}',
        '- Limite da triagem: regexes indicam padrões suspeitos; não substituem secret scanning dedicado, histórico Git ou revisão humana.',
        f'- Erros: {len(errors)}',f'- Avisos: {len(warnings)}',f'- Avisos justificados: {len(justified)}','', '## Erros']
 lines += [f'- {x}' for x in errors] or ['- Nenhum erro.']
 lines += ['', '## Avisos'] + ([f'- {x}' for x in warnings] or ['- Nenhum aviso.'])
 lines += ['', '## Avisos justificados'] + ([f'- {x}' for x in justified] or ['- Nenhum.'])
 report.write_text(chr(10).join(lines)+chr(10),encoding='utf-8')
-print(json.dumps({'markdown_pacote':len(all_md),'markdown_analisados':len(md),'errors':len(errors),'warnings':len(warnings),'justified':len(justified)},ensure_ascii=False))
+print(json.dumps({'markdown_pacote':len(all_md),'markdown_analisados':len(md),'notas_controle':control_notes,'errors':len(errors),'warnings':len(warnings),'justified':len(justified)},ensure_ascii=False))
 if errors: sys.exit(1)
 if '--strict' in sys.argv and warnings:
     print('STRICT: avisos não justificados')
