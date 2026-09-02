@@ -206,7 +206,35 @@ else:
     if '.relative_to(' not in rag_text:
         errors.append('RAG_REQUIRED_GUARD relative-source-metadata')
 
-# 5) XLSX formulas and broken references.
+# 5) Static checks for the Ollama enterprise security controls. These checks
+# validate that the control package remains present and internally consistent;
+# they do not claim that a runtime test was executed by this validator.
+ollama_note=ROOT/'08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md'
+ollama_evidence=ROOT/'10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md'
+ollama_controls={
+    'OLL-NET-001': ROOT/'10-Operacao-e-Seguranca/Controles/OLL-NET-001-Bind-loopback.md',
+    'OLL-AUTH-002': ROOT/'10-Operacao-e-Seguranca/Controles/OLL-AUTH-002-Camada-externa-de-autenticacao.md',
+    'OLL-CLD-003': ROOT/'10-Operacao-e-Seguranca/Controles/OLL-CLD-003-Modo-somente-local.md',
+}
+if not ollama_note.exists():
+    errors.append('MISSING_OLLAMA_ENTERPRISE_RUNTIME_NOTE')
+else:
+    note_text=ollama_note.read_text(encoding='utf-8',errors='replace')
+    for required in ('127.0.0.1:11434','OLLAMA_NO_CLOUD','OLLAMA_ORIGINS','Require Authentication','store:false'):
+        if required not in note_text:
+            errors.append(f'OLLAMA_NOTE_MISSING {required}')
+for control_id,control_path in ollama_controls.items():
+    if not control_path.exists():
+        errors.append(f'MISSING_OLLAMA_CONTROL {control_id}')
+if not ollama_evidence.exists():
+    errors.append('MISSING_OLLAMA_SECURITY_EVIDENCE')
+else:
+    evidence_text=ollama_evidence.read_text(encoding='utf-8',errors='replace')
+    for required in ('OLL-NET-001','OLL-AUTH-002','OLL-CLD-003','127.0.0.1:11434','OLLAMA_NO_CLOUD:false'):
+        if required not in evidence_text:
+            errors.append(f'OLLAMA_EVIDENCE_MISSING {required}')
+
+# 6) XLSX formulas and broken references.
 for p in ROOT.rglob('*.xlsx'):
     if ignored(p): continue
     try:
@@ -229,7 +257,7 @@ for p in ROOT.rglob('*.xlsx'):
                 warnings.append(f'NO_FORMULAS {rel(p)}')
     except Exception as e: errors.append(f'XLSX {rel(p)} {e}')
 
-# 6) Heuristic secret indicators across relevant text/config/script formats.
+# 7) Heuristic secret indicators across relevant text/config/script formats.
 # Regexes catch common accidental disclosures but do not replace a dedicated
 # secret scanner, entropy analysis, repository history review or human audit.
 secret_indicator=re.compile(
@@ -246,7 +274,7 @@ for p in text_files:
     if secret_indicator.search(t):
         errors.append(f'POSSIBLE_SECRET_PATTERN {rel(p)}')
 
-# 7) Third-party GitHub Actions must be immutable. The adjacent version comment
+# 8) Third-party GitHub Actions must be immutable. The adjacent version comment
 # remains human-readable while the 40-character commit prevents tag drift.
 action_use=re.compile(r'^\s*(?:-\s*)?uses:\s+([^\s#]+)',re.M)
 for p in [*ROOT.rglob('*.yml'),*ROOT.rglob('*.yaml')]:

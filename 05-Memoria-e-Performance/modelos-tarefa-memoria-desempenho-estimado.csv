@@ -1,0 +1,33 @@
+modelo,tarefa,parametros_totais_B,parametros_ativos_B,memoria_pesos_q4_GiB,plataforma,memoria_acelerador_GiB,tokens_s_estimados,modo
+LFM2,Texto,1.2,1.2,4.16,RTX 5090 32 GB,32,236.9,acelerador/memoria_unificada
+LFM2,Texto,1.2,1.2,4.16,GB10 128 GB,128,45.9,acelerador/memoria_unificada
+LFM2,Texto,1.2,1.2,4.16,Mac Studio M5 Max 128 GB,128,66.3,acelerador/memoria_unificada
+LFM2,Texto,1.2,1.2,4.16,Mac mini M5 Pro 64 GB,64,36.9,acelerador/memoria_unificada
+Granite 4.1,Texto/RAG,8,8,7.9,RTX 5090 32 GB,32,124.8,acelerador/memoria_unificada
+Granite 4.1,Texto/RAG,8,8,7.9,GB10 128 GB,128,24.2,acelerador/memoria_unificada
+Granite 4.1,Texto/RAG,8,8,7.9,Mac Studio M5 Max 128 GB,128,34.9,acelerador/memoria_unificada
+Granite 4.1,Texto/RAG,8,8,7.9,Mac mini M5 Pro 64 GB,64,19.4,acelerador/memoria_unificada
+Qwen3.5,Texto,9,9,8.45,RTX 5090 32 GB,32,116.6,acelerador/memoria_unificada
+Qwen3.5,Texto,9,9,8.45,GB10 128 GB,128,22.6,acelerador/memoria_unificada
+Qwen3.5,Texto,9,9,8.45,Mac Studio M5 Max 128 GB,128,32.7,acelerador/memoria_unificada
+Qwen3.5,Texto,9,9,8.45,Mac mini M5 Pro 64 GB,64,18.2,acelerador/memoria_unificada
+Qwen3-Coder,Coding,30,30,20.0,RTX 5090 32 GB,32,49.3,acelerador/memoria_unificada
+Qwen3-Coder,Coding,30,30,20.0,GB10 128 GB,128,9.6,acelerador/memoria_unificada
+Qwen3-Coder,Coding,30,30,20.0,Mac Studio M5 Max 128 GB,128,13.8,acelerador/memoria_unificada
+Qwen3-Coder,Coding,30,30,20.0,Mac mini M5 Pro 64 GB,64,7.7,acelerador/memoria_unificada
+Gemma 4,Texto/RAG,31,31,20.55,RTX 5090 32 GB,32,48.0,acelerador/memoria_unificada
+Gemma 4,Texto/RAG,31,31,20.55,GB10 128 GB,128,9.3,acelerador/memoria_unificada
+Gemma 4,Texto/RAG,31,31,20.55,Mac Studio M5 Max 128 GB,128,13.4,acelerador/memoria_unificada
+Gemma 4,Texto/RAG,31,31,20.55,Mac mini M5 Pro 64 GB,64,7.5,acelerador/memoria_unificada
+Qwen3-Coder-Next,Coding MoE,80,3,47.5,RTX 5090 32 GB,32,3.7,offload
+Qwen3-Coder-Next,Coding MoE,80,3,47.5,GB10 128 GB,128,4.0,acelerador/memoria_unificada
+Qwen3-Coder-Next,Coding MoE,80,3,47.5,Mac Studio M5 Max 128 GB,128,5.8,acelerador/memoria_unificada
+Qwen3-Coder-Next,Coding MoE,80,3,47.5,Mac mini M5 Pro 64 GB,64,3.2,acelerador/memoria_unificada
+Laguna S 2.1,Coding MoE,118,8,68.4,RTX 5090 32 GB,32,2.6,offload
+Laguna S 2.1,Coding MoE,118,8,68.4,GB10 128 GB,128,2.8,acelerador/memoria_unificada
+Laguna S 2.1,Coding MoE,118,8,68.4,Mac Studio M5 Max 128 GB,128,4.0,acelerador/memoria_unificada
+Laguna S 2.1,Coding MoE,118,8,68.4,Mac mini M5 Pro 64 GB,64,1.0,offload
+qwen2.5-vl,Visão,72,72,43.1,RTX 5090 32 GB,32,4.1,offload
+qwen2.5-vl,Visão,72,72,43.1,GB10 128 GB,128,4.4,acelerador/memoria_unificada
+qwen2.5-vl,Visão,72,72,43.1,Mac Studio M5 Max 128 GB,128,6.4,acelerador/memoria_unificada
+qwen2.5-vl,Visão,72,72,43.1,Mac mini M5 Pro 64 GB,64,3.6,acelerador/memoria_unificada

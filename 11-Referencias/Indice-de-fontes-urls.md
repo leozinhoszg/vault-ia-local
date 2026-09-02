@@ -2,7 +2,7 @@
 
 <!-- validador: sem-referencias: nota gerada automaticamente por 99-Templates/gerar_indice_urls.py; as fontes são o próprio conteúdo -->
 
-Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 180, sendo 173 fontes externas e 7 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
+Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 181, sendo 174 fontes externas e 7 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
 
 | URL | Arquivos de origem |
 |---|---|
@@ -33,7 +33,7 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/fp8_primer.html | 05-Memoria-e-Performance/Comparativo-FP8-vs-FP4.md |
 | https://docs.ollama.com/api/generate | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/RAG-livro.md |
 | https://docs.ollama.com/cloud | 02-Modelos/Local-real-vs-cloud.md, 11-Referencias/Fontes-principais.md |
-| https://docs.ollama.com/faq | 01-Fundamentos/00-Comece-aqui.md, 01-Fundamentos/Carregar-um-peso.md, 01-Fundamentos/Entrada-e-saida.md, 01-Fundamentos/Glossario-essencial.md, 02-Modelos/Local-real-vs-cloud.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md, 10-Operacao-e-Seguranca/Controles/OLL-AUTH-002-Camada-externa-de-autenticacao.md, 10-Operacao-e-Seguranca/Controles/OLL-CLD-003-Modo-somente-local.md, 10-Operacao-e-Seguranca/Controles/OLL-NET-001-Bind-loopback.md, 10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md, 10-Operacao-e-Seguranca/Supply-chain-de-modelos.md, 10-Operacao-e-Seguranca/Threat-model-LLM-local.md, 11-Referencias/Fontes-principais.md |
+| https://docs.ollama.com/faq | 01-Fundamentos/00-Comece-aqui.md, 01-Fundamentos/Carregar-um-peso.md, 01-Fundamentos/Entrada-e-saida.md, 01-Fundamentos/Glossario-essencial.md, 02-Modelos/Local-real-vs-cloud.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 07-Implementacao-Casa/Guia-empresarial-LM-Studio-Ollama-seguranca-RBAC.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md, 10-Operacao-e-Seguranca/Controles/OLL-AUTH-002-Camada-externa-de-autenticacao.md, 10-Operacao-e-Seguranca/Controles/OLL-CLD-003-Modo-somente-local.md, 10-Operacao-e-Seguranca/Controles/OLL-NET-001-Bind-loopback.md, 10-Operacao-e-Seguranca/Evidencias/Ollama-testes-negativos-2026-09-01.md, 10-Operacao-e-Seguranca/Supply-chain-de-modelos.md, 10-Operacao-e-Seguranca/Threat-model-LLM-local.md, 11-Referencias/Fontes-principais.md |
 | https://docs.ollama.com/gpu | 01-Fundamentos/Carregar-um-peso.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 11-Referencias/Fontes-principais.md |
 | https://docs.ragas.io/ | 05-Memoria-e-Performance/Evaliacao-e-regressao-de-modelos.md |
 | https://docs.sglang.ai/ | 05-Memoria-e-Performance/Inferencia-livro.md |
@@ -95,9 +95,10 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/1110a243fdf4706b3f48f1d95db1a4f5529b4d41 | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
 | https://huggingface.co/unsloth/Kimi-K2.7-Code-GGUF | 02-Modelos/Fichas/Kimi-K2.7-Code.md |
 | https://lmstudio.ai/docs/cli/local-models/get | 02-Modelos/Catalogo-LM-Studio-modelos-baixaveis-2026-09-02.md, 02-Modelos/Guia-de-escolha-modelo-por-tarefa-e-maquina.md |
-| https://lmstudio.ai/docs/developer/core/authentication | 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md |
+| https://lmstudio.ai/docs/developer/core/authentication | 07-Implementacao-Casa/Guia-empresarial-LM-Studio-Ollama-seguranca-RBAC.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md |
 | https://lmstudio.ai/docs/developer/core/server/settings | 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md |
 | https://lmstudio.ai/docs/developer/rest/chat | 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md |
+| https://lmstudio.ai/docs/developer/rest/quickstart | 07-Implementacao-Casa/Guia-empresarial-LM-Studio-Ollama-seguranca-RBAC.md |
 | https://lmstudio.ai/models | 02-Modelos/Catalogo-LM-Studio-modelos-baixaveis-2026-09-02.md, 02-Modelos/Guia-de-escolha-modelo-por-tarefa-e-maquina.md |
 | https://mlcommons.org/benchmarks/client/ | 03-Hardware/Catalogo-NVIDIA-IA-local.md, 03-Hardware/Referencias-de-desempenho-GPU.md |
 | https://modelcontextprotocol.io/ | 07-Implementacao-Casa/Agentes-e-tool-calling.md |
@@ -158,7 +159,7 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://www.kabum.com.br/busca/RTX-5090 | 09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md |
 | https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory | 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.mlperf.org/ | 05-Memoria-e-Performance/Benchmarks/README.md |
-| https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence | 00-Inicio/Livro-IA-Local.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md, 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 10-Operacao-e-Seguranca/Esquema-de-auditoria-LLM.md, 10-Operacao-e-Seguranca/NIST-AI-RMF-GenAI.md, 10-Operacao-e-Seguranca/Threat-model-LLM-local.md |
+| https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence | 00-Inicio/Livro-IA-Local.md, 07-Implementacao-Casa/Guia-empresarial-LM-Studio-Ollama-seguranca-RBAC.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md, 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 10-Operacao-e-Seguranca/Esquema-de-auditoria-LLM.md, 10-Operacao-e-Seguranca/NIST-AI-RMF-GenAI.md, 10-Operacao-e-Seguranca/Threat-model-LLM-local.md |
 | https://www.nvidia.com/ | 03-Hardware/BOMs/BOM-Mac-Studio-M4-Max.md, 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RTX-5090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/ | 03-Hardware/Builds-brasileiros-por-orcamento.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/ | 03-Hardware/Builds-brasileiros-por-orcamento.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md |
