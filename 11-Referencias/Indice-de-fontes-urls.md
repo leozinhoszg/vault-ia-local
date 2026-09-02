@@ -2,7 +2,7 @@
 
 <!-- validador: sem-referencias: nota gerada automaticamente por 99-Templates/gerar_indice_urls.py; as fontes são o próprio conteúdo -->
 
-Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 153, sendo 149 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
+Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 158, sendo 154 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
 
 | URL | Arquivos de origem |
 |---|---|
@@ -17,6 +17,7 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://arxiv.org/abs/2305.14314 | 00-Inicio/Livro-IA-Local.md, 06-Treinamento-e-Fine-tuning/01-QLoRA-pratico.md, 06-Treinamento-e-Fine-tuning/02-Fine-tuning-completo.md, 06-Treinamento-e-Fine-tuning/03-Treinamento-e-limites-economicos.md, 06-Treinamento-e-Fine-tuning/Fine-tuning-livro.md, 11-Referencias/Fontes-principais.md |
 | https://arxiv.org/abs/2305.18290 | 06-Treinamento-e-Fine-tuning/03-Treinamento-e-limites-economicos.md, 06-Treinamento-e-Fine-tuning/Fine-tuning-livro.md |
 | https://atomic.chat/blog/guides/best-local-llms-for-coding | 02-Modelos/Catalogo-de-modelos.md, 02-Modelos/Fichas/Qwen3-Coder-30B.md, 02-Modelos/LLMs-locais-para-coding-Atomic.md, 03-Hardware/Comparativo-workstations-vs-GPU.md |
+| https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/ | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md |
 | https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/ | 03-Hardware/Matriz-de-hardware.md, 03-Hardware/Sizing-9B-14B-27B-70B.md, 05-Memoria-e-Performance/Comparativo-FP8-vs-FP4.md, 05-Memoria-e-Performance/Quantizacao-e-FP4.md, 05-Memoria-e-Performance/Quantizacao-livro.md, 05-Memoria-e-Performance/Quantizacoes-praticas.md, 11-Referencias/Fontes-principais.md |
 | https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview | 07-Implementacao-Casa/Agentes-e-tool-calling.md |
 | https://docs.cloud.google.com/tpu/docs/intro-to-tpu | 03-Hardware/APU-e-TPU.md |
@@ -48,6 +49,7 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md | 01-Fundamentos/Carregar-um-peso.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 11-Referencias/Fontes-principais.md |
 | https://github.com/ggml-org/llama.cpp/pull/25165 | 02-Modelos/Fichas/Laguna-XS-2.1.md |
 | https://github.com/huggingface/sentence-transformers/blob/main/SECURITY.md | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
+| https://github.com/leozinhoszg/vault-ia-local/blob/main/09-Servicos-e-Custos/Comparativo-Dell-Pro-Max-vs-PC-128-256GB-2026-09-02.md | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md |
 | https://github.com/ml-explore/mlx | 03-Hardware/AMD-e-Apple-Silicon-para-IA-local.md, 03-Hardware/Mac-Studio-e-IA-local.md, 04-Software/Cookbooks-multiplataforma.md, 04-Software/Runtimes.md, 05-Memoria-e-Performance/Comparativo-FP8-vs-FP4.md, 11-Referencias/Fontes-principais.md |
 | https://github.com/ml-explore/mlx-lm | 03-Hardware/Mac-Studio-e-IA-local.md |
 | https://github.com/ollama/ollama | 05-Memoria-e-Performance/Inferencia-livro.md, 07-Implementacao-Casa/01-LLM-local-com-Ollama.md, 07-Implementacao-Casa/AI-assisted-coding-tools.md |
@@ -112,13 +114,16 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://scikit-learn.org/stable/modules/linear_model.html | 01-Fundamentos/Regressao-ML.md |
 | https://scikit-learn.org/stable/modules/model_evaluation.html | 01-Fundamentos/Regressao-ML.md, 05-Memoria-e-Performance/Evaliacao-e-regressao-de-modelos.md |
 | https://semiconductor.samsung.com/consumer-storage/internal-ssd/990-pro/ | 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
+| https://store.minisforum.com/products/minisforum-ai-x1-pro-470-mini-pc | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md |
 | https://www.amd.com/ | 03-Hardware/BOMs/BOM-Mac-Studio-M4-Max.md, 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RTX-5090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.amd.com/en/developer/resources/technical-articles/2025/amd-ryzen-ai-max-395--a-leap-forward-in-generative-ai-performanc.html | 03-Hardware/APU-e-TPU.md |
 | https://www.amd.com/en/products/graphics/desktops/radeon/7000-series/amd-radeon-rx-7900xtx.html | 03-Hardware/AMD-e-Apple-Silicon-para-IA-local.md |
 | https://www.amd.com/en/products/graphics/workstations/radeon-pro/w7900.html | 03-Hardware/AMD-e-Apple-Silicon-para-IA-local.md |
 | https://www.aneel.gov.br/ | 03-Hardware/BOM-brasileira-datada.md, 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 09-Servicos-e-Custos/Servicos-comerciais-e-break-even.md |
 | https://www.apc.com/br/ | 03-Hardware/BOMs/BOM-Mac-Studio-M4-Max.md, 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
+| https://www.apple.com/br/mac-mini/specs/ | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md |
 | https://www.apple.com/br/mac-studio/ | 03-Hardware/BOMs/BOM-Mac-Studio-M4-Max.md, 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Mac-Studio-e-IA-local.md |
+| https://www.apple.com/br/mac-studio/specs/ | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md |
 | https://www.apple.com/br/shop/buy-mac/mac-studio | 03-Hardware/BOMs/BOM-Mac-Studio-M4-Max.md, 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RTX-5090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md, 03-Hardware/Mac-Studio-e-IA-local.md |
 | https://www.apple.com/mac-studio/ | 03-Hardware/AMD-e-Apple-Silicon-para-IA-local.md |
 | https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/ | 03-Hardware/AMD-e-Apple-Silicon-para-IA-local.md |
@@ -139,7 +144,7 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://www.nvidia.com/ | 03-Hardware/BOMs/BOM-Mac-Studio-M4-Max.md, 03-Hardware/BOMs/BOM-RTX-4090.md, 03-Hardware/BOMs/BOM-RTX-5090.md, 03-Hardware/BOMs/BOM-RX-7900-XTX.md |
 | https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/ | 03-Hardware/Builds-brasileiros-por-orcamento.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/ | 03-Hardware/Builds-brasileiros-por-orcamento.md, 03-Hardware/Catalogo-NVIDIA-IA-local.md |
-| https://www.nvidia.com/en-us/products/workstations/dgx-spark/ | 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
+| https://www.nvidia.com/en-us/products/workstations/dgx-spark/ | 03-Hardware/Comparativo-plataformas-computadores-IA-local-2026-09-02.md, 03-Hardware/Workstations/Dell-Pro-Max-GB10.md |
 | https://www.nvidia.com/en-us/products/workstations/rtx-5000/ | 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/en-us/products/workstations/rtx-6000/ | 03-Hardware/Catalogo-NVIDIA-IA-local.md |
 | https://www.nvidia.com/pt-br/geforce/graphics-cards/40-series/rtx-4090/ | 03-Hardware/Comparativo-workstations-vs-GPU.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md |
