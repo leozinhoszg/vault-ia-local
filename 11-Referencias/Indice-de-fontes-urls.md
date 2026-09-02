@@ -2,7 +2,7 @@
 
 <!-- validador: sem-referencias: nota gerada automaticamente por 99-Templates/gerar_indice_urls.py; as fontes são o próprio conteúdo -->
 
-Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 165, sendo 161 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
+Gerado em 2026-09-01 por `99-Templates/gerar_indice_urls.py`. URLs únicas no vault: 168, sendo 164 fontes externas e 4 endpoints locais de exemplo (listados ao final, não são fontes). Escopo: `.md`, `.py` e `.txt`, excluindo este índice, os relatórios de validação e o lockfile. O índice é auxiliar; a nota de origem continua sendo a autoridade contextual.
 
 | URL | Arquivos de origem |
 |---|---|
@@ -29,7 +29,7 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://docs.nvidia.com/deeplearning/transformer-engine/user-guide/examples/fp8_primer.html | 05-Memoria-e-Performance/Comparativo-FP8-vs-FP4.md |
 | https://docs.ollama.com/api/generate | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/RAG-livro.md |
 | https://docs.ollama.com/cloud | 02-Modelos/Local-real-vs-cloud.md, 11-Referencias/Fontes-principais.md |
-| https://docs.ollama.com/faq | 01-Fundamentos/00-Comece-aqui.md, 01-Fundamentos/Carregar-um-peso.md, 01-Fundamentos/Entrada-e-saida.md, 01-Fundamentos/Glossario-essencial.md, 02-Modelos/Local-real-vs-cloud.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 11-Referencias/Fontes-principais.md |
+| https://docs.ollama.com/faq | 01-Fundamentos/00-Comece-aqui.md, 01-Fundamentos/Carregar-um-peso.md, 01-Fundamentos/Entrada-e-saida.md, 01-Fundamentos/Glossario-essencial.md, 02-Modelos/Local-real-vs-cloud.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md, 11-Referencias/Fontes-principais.md |
 | https://docs.ollama.com/gpu | 01-Fundamentos/Carregar-um-peso.md, 03-Hardware/Por-que-VRAM-RAM-e-CPU-importam.md, 11-Referencias/Fontes-principais.md |
 | https://docs.ragas.io/ | 05-Memoria-e-Performance/Evaliacao-e-regressao-de-modelos.md |
 | https://docs.sglang.ai/ | 05-Memoria-e-Performance/Inferencia-livro.md |
@@ -89,6 +89,9 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/1110a243fdf4706b3f48f1d95db1a4f5529b4d41 | 07-Implementacao-Casa/03-RAG-deploy.md, 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
 | https://huggingface.co/unsloth/Kimi-K2.7-Code-GGUF | 02-Modelos/Fichas/Kimi-K2.7-Code.md |
 | https://lmstudio.ai/docs/cli/local-models/get | 02-Modelos/Catalogo-LM-Studio-modelos-baixaveis-2026-09-02.md, 02-Modelos/Guia-de-escolha-modelo-por-tarefa-e-maquina.md |
+| https://lmstudio.ai/docs/developer/core/authentication | 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md |
+| https://lmstudio.ai/docs/developer/core/server/settings | 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md |
+| https://lmstudio.ai/docs/developer/rest/chat | 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md |
 | https://lmstudio.ai/models | 02-Modelos/Catalogo-LM-Studio-modelos-baixaveis-2026-09-02.md, 02-Modelos/Guia-de-escolha-modelo-por-tarefa-e-maquina.md |
 | https://mlcommons.org/benchmarks/client/ | 03-Hardware/Catalogo-NVIDIA-IA-local.md, 03-Hardware/Referencias-de-desempenho-GPU.md |
 | https://modelcontextprotocol.io/ | 07-Implementacao-Casa/Agentes-e-tool-calling.md |
@@ -105,7 +108,7 @@ Gerado em 2026-09-02 por `99-Templates/gerar_indice_urls.py`. URLs únicas no va
 | https://opendata.bcb.gov.br/dataset/exchange-rates-daily-bulletins | 03-Hardware/BOM-brasileira-datada.md, 09-Servicos-e-Custos/Guia-financeiro-TCO-local-vs-OpenAI.md, 09-Servicos-e-Custos/Servicos-comerciais-e-break-even.md |
 | https://openid.net/specs/openid-connect-core-1_0.html | 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md |
 | https://osv.dev/ | 07-Implementacao-Casa/Evidencias/RAG-hardening-2026-09-01.md |
-| https://owasp.org/www-project-top-10-for-large-language-model-applications/ | 07-Implementacao-Casa/AI-assisted-coding-tools.md, 07-Implementacao-Casa/Agentes-e-tool-calling.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md |
+| https://owasp.org/www-project-top-10-for-large-language-model-applications/ | 07-Implementacao-Casa/AI-assisted-coding-tools.md, 07-Implementacao-Casa/Agentes-e-tool-calling.md, 08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos.md, 08-Implementacao-Empresa/Seguranca-empresarial-e-LGPD.md |
 | https://platform.openai.com/docs/guides/function-calling | 07-Implementacao-Casa/Agentes-e-tool-calling.md |
 | https://poolside.ai/blog/introducing-laguna-xs-2-1 | 02-Modelos/Fichas/Laguna-XS-2.1.md |
 | https://pypdf.readthedocs.io/ | 07-Implementacao-Casa/03-RAG-deploy.md |

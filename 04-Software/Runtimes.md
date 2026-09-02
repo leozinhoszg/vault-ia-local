@@ -13,9 +13,13 @@
 | MLX | Apple Silicon | Treinamento e inferência nativos em memória unificada. |
 | LiteRT/ONNX Runtime | Edge e modelos convertidos | Depende do operador e provedor de execução. |
 
+Para usar Ollama ou LM Studio em cenário empresarial (gateway, RBAC, auditoria), ver [[08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos]].
+
 Comece com o runtime que reduz risco operacional. Trocar para vLLM ou TensorRT-LLM faz sentido quando métricas mostram que throughput, concorrência ou latência justificam a complexidade.
 
-**Referências**
+- **Última atualização:** 2026-09-01 (link para uso empresarial de Ollama/LM Studio).
+
+## Referências
 
 [1]: https://github.com/ggml-org/llama.cpp "llama.cpp"
 [2]: https://docs.vllm.ai/ "vLLM documentation"

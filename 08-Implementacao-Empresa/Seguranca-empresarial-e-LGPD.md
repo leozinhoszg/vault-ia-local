@@ -2,7 +2,7 @@
 
 ## Identidade e acesso
 
-Integre SSO via OIDC ou SAML ao IdP corporativo. Valide issuer, audience, assinatura, expiração, nonce e rotação de chaves. Faça RBAC por função e ABAC por tenant, projeto, documento e ambiente. Service accounts devem ter escopo mínimo e segredo fora do código.
+Integre SSO via OIDC ou SAML ao IdP corporativo. Valide issuer, audience, assinatura, expiração, nonce e rotação de chaves. Faça RBAC por função e ABAC por tenant, projeto, documento e ambiente. Service accounts devem ter escopo mínimo e segredo fora do código. Para aplicar este contrato a runtimes de desktop (LM Studio, Ollama), ver [[08-Implementacao-Empresa/04-LM-Studio-e-Ollama-como-runtimes-internos]].
 
 ## Isolamento multi-tenant
 
